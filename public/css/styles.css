@@ -8,9 +8,58 @@
 }
 .header {
     font-size: 3rem;
+    margin-left: 20px;
     margin-bottom: 15px;
 }
 
 h2 {
     font-size: 2rem;
+    margin: 25px auto;
+    margin-left: 20px;
+}
+input {
+    margin-left: 20px;
+}
+
+.flex_row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image_box {
+    display: flex;
+    flex-direction: column;
+    max-width: 315px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+img {
+    width: 300px;
+    height: 250px;
+    /* margin: 0; */
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px grey;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 0.7rem;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 0;
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .flex_row {
+        flex-direction: column;
+    }
 }
