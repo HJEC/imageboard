@@ -2,24 +2,22 @@
 <html>
 <head>
     <title>imageboard</title>
-    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div id="main">
-        <h1 :class="className">{{heading}}</h1>
-        <h2>Latest images: </h2>
-        <input v-model="title">
+        <h1 v-bind:class="className">{{heading}}</h1>
+        <h1>Universal Truth: {{hotboi}}</h1>
         <a :href="url">click here</a><br><br>
-
-        <div v-for="i in images">
+        <ul v-if="candy">
             <!-- <li v-for="c in candy" v-on:click="c.name = 'puppies'">{{c.name}}</li> -->
-            <img :src="i.url">
-            <p>{{i.title}} &ensp; {{i.description}}</p>
-        </div
+            <li v-for="c in candy" @click="changeName(c.name)">{{c.name}}</li>
+        </ul>
+        <input v-model="greetee">
     </div>
-
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/script_practice.js">
+
+    </script>
 </body>
 </html>

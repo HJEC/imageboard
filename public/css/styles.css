@@ -1,0 +1,16 @@
+* {
+    font-size: 20px;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: freight-sans-pro, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+.header {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2rem;
+}
