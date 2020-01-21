@@ -9,7 +9,15 @@
     <div id="main">
         <h1 :class="className">{{heading}}</h1>
         <h2>Latest images: </h2>
-        <input v-model="title">
+        <form>
+            <input type="text" v-model="title" name="title" placeholder="title">
+            <input type="text" v-model="description" name="description" placeholder="description">
+            <input type="text" v-model="username" name="username" placeholder="username">
+
+            <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
+            <label for="file">select file</label>
+            <button  @click="handleClick">submit</button>
+        </form>
 
         <div class="flex_row">
             <div v-for="i in images" class="image_box">
@@ -17,7 +25,7 @@
                 <img :src="i.url">
                 <p class="title">{{i.title}}</p>
                 <p class="description">{{i.description}}</p>
-            </div
+            </div>
         </div>
     </div>
 
