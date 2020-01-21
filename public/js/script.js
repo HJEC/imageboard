@@ -4,7 +4,7 @@
         data: {
             heading: "HOT BOIS",
             className: "header",
-            images: null,
+            images: [],
             title: "",
             description: "",
             username: "",
@@ -14,8 +14,8 @@
             axios
                 .get("/images")
                 .then(res => {
-                    // console.log("response is: ", res.data);
-                    this.images = res.data;
+                    console.log("response is: ", res.data);
+                    this.images = res.data.reverse();
                 })
                 .catch(function(err) {
                     console.log("error: ", err);
@@ -26,6 +26,7 @@
         },
         methods: {
             handleClick: function(e) {
+                var vueInstance = this;
                 e.preventDefault();
                 console.log("this: ", this);
 
@@ -40,6 +41,7 @@
                     .post("/upload", formData)
                     .then(function(response) {
                         console.log("response from POST /upload: ", response);
+                        vueInstance.images.unshift(response.data);
                     })
                     .catch(function(err) {
                         console.log("Error in POST: ", err);

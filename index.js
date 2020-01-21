@@ -1,6 +1,8 @@
 const express = require("express"),
     app = express(),
-    { getImages, importImages } = require("./dbFuncs");
+    { getImages, importImages } = require("./dbFuncs"),
+    { upload } = require("./s3"),
+    config = require("./config");
 
 app.use(express.static("./public"));
 
@@ -26,7 +28,6 @@ const uploader = multer({
         fileSize: 2097152
     }
 });
-
 // __IMAGE PROFILE UPLOAD__
 app.use(express.json());
 
@@ -37,24 +38,24 @@ app.get("/images", (req, res) => {
     console.log("images: ", getImages());
 });
 
-app.post("/upload", uploader.single("file"), (req, res) => {
+app.post("/upload", uploader.single("file"), upload, (req, res) => {
     console.log("file: ", req.file);
     console.log("input:", req.body);
-    let url = req.file.path;
+    let url = config.s3Url + req.file.filename;
     let title = req.body.title;
     let username = req.body.username;
     let description = req.body.description;
+
     console.log("file contents:", url, title, username, description);
-    if (req.file) {
-        importImages(url, title, username, description).then(
-            res.json({
-                success: true
-            })
-        );
-    } else {
-        res.json({
-            success: false
+
+    importImages(url, title, username, description)
+        .then(response => {
+            console.log("response from import:", response.rows[0]);
+            res.json(response.rows[0]);
+        })
+        .catch(err => {
+            console.log("error in import: ", err);
+            res.sendStatus(500);
         });
-    }
 });
 app.listen(8080, () => console.log("see you space cowboy..."));
