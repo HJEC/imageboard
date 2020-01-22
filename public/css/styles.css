@@ -89,10 +89,11 @@ p {
 /* COMPONENT  */
 .component {
     position: fixed;
-    top: 30px;
-    left: 30px;
-    bottom: 30px;
-    right: 30px;
+    width: 750px;
+    top: 10vh;
+    left: 10vw;
+    bottom: 10vh;
+    right: 40vw;
     background-color: peachpuff;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -140,6 +141,15 @@ p {
 
 .comments_box input {
     margin: 25px 10px;
+}
+.comments_box p {
+    margin: 10px auto;
+}
+.comment {
+    width: 60%;
+    left: 0;
+    word-wrap: break-word;
+    border-bottom: 1px solid black;
 }
 
 /* Portrait */
