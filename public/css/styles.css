@@ -6,7 +6,9 @@
     font-style: normal;
     font-weight: 500;
 }
-.header {
+
+/* MAIN PAGE  */
+h1 {
     font-size: 3rem;
     margin-left: 20px;
     margin-bottom: 15px;
@@ -19,6 +21,15 @@ h2 {
 }
 input {
     margin-left: 20px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 0;
 }
 #file {
     width: 0.1px;
@@ -63,24 +74,72 @@ label:hover {
     padding: 5px;
 }
 
-img {
+.image_list {
     height: 250px;
     object-fit: scale-down;
     border-radius: 5px;
     box-shadow: 0px 3px 4px grey;
     margin-bottom: 10px;
 }
+
 p {
     font-size: 0.7rem;
 }
 
-.title {
+/* COMPONENT  */
+.component {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    bottom: 30px;
+    right: 30px;
+    background-color: peachpuff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 3;
+}
+.overlay {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(23, 18, 19, 0.16);
+}
+.modal_data {
+    grid-column: 1 / span 1;
+}
+.listed_comments {
+    grid-column: 2 / span 1;
+}
+.fas {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+}
+.modal_h1 {
+    margin: 15px 15px;
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 5px;
+}
+.modal_h2 {
+    font-size: 1.5rem;
+    margin: 15px 15px;
+}
+#modal_image {
+    width: 300px;
+    height: 300px;
+    margin: 15px 15px;
+    border-radius: 8px;
+    border: solid 3px grey;
+    padding: 2px;
+    object-fit: cover;
 }
 
-.description {
-    margin-bottom: 0;
+.comments_box input {
+    margin: 25px 10px;
 }
 
 /* Portrait */

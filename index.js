@@ -1,6 +1,12 @@
 const express = require("express"),
     app = express(),
-    { getImages, importImages } = require("./dbFuncs"),
+    {
+        getImages,
+        importImages,
+        getClickedImage,
+        addComment,
+        getComments
+    } = require("./dbFuncs"),
     { upload } = require("./s3"),
     config = require("./config");
 
@@ -39,8 +45,6 @@ app.get("/images", (req, res) => {
 });
 
 app.post("/upload", uploader.single("file"), upload, (req, res) => {
-    console.log("file: ", req.file);
-    console.log("input:", req.body);
     let url = config.s3Url + req.file.filename;
     let title = req.body.title;
     let username = req.body.username;
@@ -58,4 +62,37 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
             res.sendStatus(500);
         });
 });
+
+app.get("/selected/:id", (req, res) => {
+    let id = req.params.id;
+    getClickedImage(id)
+        .then(rows => {
+            res.json(rows[0]);
+        })
+        .catch(err => console.log("Server error in Modal request: ", err));
+});
+
+app.get("/comments/:imageId", (req, res) => {
+    let id = req.params.imageId;
+    getComments(id).then(response => {
+        res.json(response);
+    });
+});
+
+app.post("/addcomment/:imageId/:username/:comment", (req, res) => {
+    // console.log("add comment POST requested");
+    let imageId = req.params.imageId,
+        username = req.params.username,
+        comment = req.params.comment;
+
+    addComment(imageId, username, comment)
+        .then(response => {
+            // console.log("response from comment POST: ", response.rows[0]);
+            res.json(response.rows[0]);
+        })
+        .catch(err => {
+            console.log("Error in comment post: ", err);
+        });
+});
+
 app.listen(8080, () => console.log("see you space cowboy..."));

@@ -1,15 +1,26 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
     <title>imageboard</title>
-    <link rel="icon" href="/stuff/cowboy.png">
+    <link rel="icon" href="/stuff/image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div id="main">
-        <h1 :class="className">{{heading}}</h1>
+        <div id="overlay"></div>
+        <h1>{{heading}}</h1>
         <h2>Latest images: </h2>
+
+        <popup
+        v-if="imageSelected"
+        post-title="My amazing article"
+        :image-id="imageSelected"
+        @close="closeMe"
+        ></popup>
+
         <form>
             <input type="text" v-model="title" name="title" placeholder="title">
             <input type="text" v-model="description" name="description" placeholder="description">
@@ -17,18 +28,44 @@
 
             <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
             <label for="file">select file</label>
-            <button  @click="handleClick">submit</button>
+            <button  @click="upload">submit</button>
         </form>
 
         <div class="flex_row">
             <div v-for="i in images" class="image_box">
                 <!-- <li v-for="c in candy" v-on:click="c.name = 'puppies'">{{c.name}}</li> -->
-                <img :src="i.url">
+                <img :src="i.url" @click="imageSelected = i.id" class="image_list">
                 <p class="title">{{i.title}}</p>
                 <p class="description">{{i.description}}</p>
             </div>
         </div>
-    </div>
+    </div> <!--end of #main vue div -->
+
+    <script type="text/x-template" id="template">
+        <div class="component">
+
+                    <div class="modal_data">
+                        <h1 class="modal_h1">{{title}}</h1>
+                        <h2 class="modal_h2">user: {{username}}</h2>
+                        <h2 class="modal_h2">description: {{description}}</h2>
+                        <img :src="image" id="modal_image">
+                        <i @click="closeModal" class="fas fa-times"></i>
+                    </div>
+
+                    <div class="comments_box">
+                        <form>
+                            <input type="text" v-model="comment_username" name="comment_username" placeholder="username">
+                            <input type="text" v-model="comment" name="comment" placeholder="add comment: ">
+                            <button  @click="addComment">submit</button>
+                        </form>
+
+                        <div v-for="c in comments" class="listed_comments">
+                            <p>Posted by: {{c.username}}</p>
+                            <p>{{c.comment}}</p>
+                        </div>
+                    </div>
+        </div>
+    </script>
 
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
