@@ -7,10 +7,25 @@ const spicedPg = require("spiced-pg"),
 exports.getImages = function() {
     return db
         .query(
-            `SELECT url, username, title, description, id FROM images ORDER BY id DESC`
+            `SELECT url, username, title, description, id FROM images ORDER BY id DESC LIMIT 8`
         )
         .then(({ rows }) => rows);
 };
+
+exports.getMoreImages = lastId =>
+    db
+        .query(
+            `SELECT id, url, (
+                SELECT id FROM images
+                ORDER BY id ASC
+                LIMIT 1
+                ) AS "lowestId" FROM images
+                    WHERE id < $1
+                    ORDER BY id DESC
+                    LIMIT 10`,
+            [lastId]
+        )
+        .then(({ rows }) => rows);
 
 exports.importImages = function(url, username, title, description) {
     return db.query(
@@ -30,7 +45,7 @@ exports.getClickedImage = function(id) {
 
 exports.addComment = function(image_id, username, comment) {
     return db.query(
-        `WITH images AS (INSERT INTO comments (image_id, username, comment) VALUES ($1, $2, $3) RETURNING *)SELECT * FROM images ORDER BY id ASC`,
+        `INSERT INTO comments (image_id, username, comment) VALUES ($1, $2, $3) RETURNING *`,
         [image_id, username, comment]
     );
 };

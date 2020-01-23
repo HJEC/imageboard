@@ -109,6 +109,24 @@
             closeMe: function() {
                 this.imageSelected = null;
                 console.log("V.MAIN: Method fired. Count is: ");
+            },
+            moreImages: function() {
+                console.log(
+                    "Id of last image: ",
+                    this.images[this.images.length - 1].id
+                );
+                let lastId = this.images[this.images.length - 1].id;
+                axios
+                    .get(`/images/${lastId}`)
+                    .then(res => {
+                        for (let i in res.data) {
+                            console.log("response is: ", res.data[i]);
+                            this.images.push(res.data[i]);
+                        }
+                    })
+                    .catch(function(err) {
+                        console.log("error in GMI: ", err);
+                    });
             }
         }
     });

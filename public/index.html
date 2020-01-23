@@ -16,7 +16,6 @@
 
         <popup
         v-if="imageSelected"
-        post-title="My amazing article"
         :image-id="imageSelected"
         @close="closeMe"
         ></popup>
@@ -39,6 +38,7 @@
                 <p class="description">{{i.description}}</p>
             </div>
         </div>
+        <button  @click="moreImages" class="more_button">see more</button>
     </div> <!--end of #main vue div -->
 
     <script type="text/x-template" id="template">
@@ -58,11 +58,12 @@
                             <input type="text" v-model="comment" name="comment" placeholder="add comment: ">
                             <button  @click="addComment">submit</button>
                         </form>
-
-                        <div v-for="c in comments" class="listed_comments">
-                            <p>Posted by: {{c.username}}</p>
-                            <p class="comment">{{c.comment}}</p>
-                        </div>
+                        <section class="comment_scroll">
+                            <div v-for="c in comments" class="listed_comments">
+                                <p>Posted by: {{c.username}}</p>
+                                <p class="comment">{{c.comment}}</p>
+                            </div>
+                        </section>
                     </div>
         </div>
     </script>

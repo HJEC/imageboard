@@ -2,6 +2,7 @@ const express = require("express"),
     app = express(),
     {
         getImages,
+        getMoreImages,
         importImages,
         getClickedImage,
         addComment,
@@ -34,9 +35,11 @@ const uploader = multer({
         fileSize: 2097152
     }
 });
-// __IMAGE PROFILE UPLOAD__
+// __IMAGE UPLOAD__
+
 app.use(express.json());
 
+// GET IMAGE ROUTES
 app.get("/images", (req, res) => {
     getImages().then(rows => {
         res.json(rows);
@@ -44,6 +47,14 @@ app.get("/images", (req, res) => {
     console.log("images: ", getImages());
 });
 
+app.get("/images/:lastId", (req, res) => {
+    getMoreImages(req.params.lastId).then(response => {
+        console.log("GMI response: ", response);
+        res.json(response);
+    });
+});
+
+// UPLOAD IMAGES ROUTE
 app.post("/upload", uploader.single("file"), upload, (req, res) => {
     let url = config.s3Url + req.file.filename;
     let title = req.body.title;
@@ -63,6 +74,7 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
         });
 });
 
+// SELECTED IMAGE ROUTE
 app.get("/selected/:id", (req, res) => {
     let id = req.params.id;
     getClickedImage(id)
@@ -72,6 +84,7 @@ app.get("/selected/:id", (req, res) => {
         .catch(err => console.log("Server error in Modal request: ", err));
 });
 
+// COMMENT ROUTES
 app.get("/comments/:imageId", (req, res) => {
     let id = req.params.imageId;
     getComments(id).then(response => {
