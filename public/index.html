@@ -5,12 +5,14 @@
     <link rel="icon" href="/stuff/image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/mainImages.css">
     <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="main">
-        <div id="overlay"></div>
+        <div id="overlay" :class="overlayClass"></div>
         <h1>{{heading}}</h1>
         <h2>Latest images: </h2>
 
@@ -20,23 +22,23 @@
         @close="closeMe"
         ></popup>
 
-        <form>
+        <form class="main_form">
             <input type="text" v-model="title" name="title" placeholder="title">
             <input type="text" v-model="description" name="description" placeholder="description">
             <input type="text" v-model="username" name="username" placeholder="username">
 
             <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
             <label for="file">select file</label>
-            <button  @click="upload">submit</button>
+            <button  @click="upload" class="upload">submit</button>
         </form>
 
         <div class="flex_row">
-            <div v-for="i in images" class="image_box">
-                <!-- <li v-for="c in candy" v-on:click="c.name = 'puppies'">{{c.name}}</li> -->
-                <img :src="i.url" @click="imageSelected = i.id" class="image_list">
-                <p class="title">{{i.title}}</p>
-                <p class="description">{{i.description}}</p>
-            </div>
+                <!-- <img :src="i.url" @click="imageSelected = i.id" class="image_list"> -->
+                <a v-for="i in images" class="image_box" :href="'#' + i.id">
+                    <img :src="i.url" class="image">
+                    <p class="title">{{i.title}}</p>
+                    <p class="description">{{i.description}}</p>
+                </a>
         </div>
         <button  @click="moreImages" class="more_button">see more</button>
     </div> <!--end of #main vue div -->

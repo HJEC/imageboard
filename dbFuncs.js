@@ -12,20 +12,21 @@ exports.getImages = function() {
         .then(({ rows }) => rows);
 };
 
-exports.getMoreImages = lastId =>
-    db
+exports.getMoreImages = function(lastId) {
+    return db
         .query(
-            `SELECT id, url, (
+            `SELECT id, url, title, description, (
                 SELECT id FROM images
                 ORDER BY id ASC
                 LIMIT 1
                 ) AS "lowestId" FROM images
                     WHERE id < $1
                     ORDER BY id DESC
-                    LIMIT 10`,
+                    LIMIT 8`,
             [lastId]
         )
         .then(({ rows }) => rows);
+};
 
 exports.importImages = function(url, username, title, description) {
     return db.query(

@@ -19,7 +19,7 @@
             var imageId = this.imageId;
             document.getElementById("overlay").classList.add("overlay");
 
-            axios.get("/selected/" + vueInstance.imageId).then(function(res) {
+            axios.get("/selected/" + imageId).then(function(res) {
                 // console.log("component request data: ", res.data);
                 vueInstance.image = res.data.url;
                 vueInstance.title = res.data.title;
@@ -32,6 +32,14 @@
                     vueInstance.comments.push(res.data[i]);
                 }
             });
+        },
+        watch: {
+            imageId: function() {
+                // in here we want to exactly the same as we did in mounted
+                // another problem we need to deal with is if the user tries to go to an image that doesn't exist.
+                // we probably want to lok at the responnse from the server.
+                // if the response is a valid thing, close the modal.
+            }
         },
         methods: {
             closeModal: function() {
@@ -56,7 +64,7 @@
     new Vue({
         el: "#main",
         data: {
-            imageSelected: null,
+            imageSelected: location.hash.slice(1),
             heading: "HOT DOGS",
             images: [],
             title: "",
@@ -65,6 +73,10 @@
             file: null
         },
         mounted: function() {
+            var self = this;
+            addEventListener("hashchange", function() {
+                self.imageSelected = location.hash.slice(1);
+            });
             axios
                 .get("/images")
                 .then(res => {
@@ -109,6 +121,8 @@
             closeMe: function() {
                 this.imageSelected = null;
                 console.log("V.MAIN: Method fired. Count is: ");
+                // location.hash = "";
+                history.replaceState(null, null, " ");
             },
             moreImages: function() {
                 console.log(
