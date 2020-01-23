@@ -4,6 +4,12 @@ const spicedPg = require("spiced-pg"),
             "postgres:postgres:postgres@localhost:5432/imageboard"
     );
 
+exports.findLastImage = function() {
+    return db
+        .query(`SELECT id FROM images ORDER BY id ASC limit 1`)
+        .then(({ rows }) => rows);
+};
+
 exports.getImages = function() {
     return db
         .query(

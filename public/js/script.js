@@ -70,7 +70,8 @@
             title: "",
             description: "",
             username: "",
-            file: null
+            file: null,
+            showResultsButton: true
         },
         mounted: function() {
             var self = this;
@@ -88,7 +89,11 @@
                 });
         },
         updated: function() {
-            // console.log("updated");
+            axios.get("/last").then(res => {
+                console.log("response from get last: ", res);
+                if (this.images[this.images.length - 1].id == res.data[0].id)
+                    this.showResultsButton = false;
+            });
         },
         methods: {
             upload: function(e) {
@@ -134,7 +139,7 @@
                     .get(`/images/${lastId}`)
                     .then(res => {
                         for (let i in res.data) {
-                            console.log("response is: ", res.data[i]);
+                            // console.log("response is: ", res.data[i]);
                             this.images.push(res.data[i]);
                         }
                     })

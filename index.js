@@ -6,7 +6,8 @@ const express = require("express"),
         importImages,
         getClickedImage,
         addComment,
-        getComments
+        getComments,
+        findLastImage
     } = require("./dbFuncs"),
     { upload } = require("./s3"),
     config = require("./config");
@@ -49,7 +50,7 @@ app.get("/images", (req, res) => {
 
 app.get("/images/:lastId", (req, res) => {
     getMoreImages(req.params.lastId).then(response => {
-        console.log("GMI response: ", response);
+        // console.log("GMI response: ", response[0]);
         res.json(response);
     });
 });
@@ -82,6 +83,14 @@ app.get("/selected/:id", (req, res) => {
             res.json(rows[0]);
         })
         .catch(err => console.log("Server error in Modal request: ", err));
+});
+
+// LAST IMAGE ROUTE
+app.get("/last", (req, res) => {
+    findLastImage().then(response => {
+        console.log("database response:", response);
+        res.json(response);
+    });
 });
 
 // COMMENT ROUTES

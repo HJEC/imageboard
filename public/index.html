@@ -12,7 +12,7 @@
 
 <body>
     <div id="main">
-        <div id="overlay" :class="overlayClass"></div>
+        <div id="overlay"></div>
         <h1>{{heading}}</h1>
         <h2>Latest images: </h2>
 
@@ -40,7 +40,7 @@
                     <p class="description">{{i.description}}</p>
                 </a>
         </div>
-        <button  @click="moreImages" class="more_button">see more</button>
+        <button  @click="moreImages" class="more_button" v-if="showResultsButton">see more</button>
     </div> <!--end of #main vue div -->
 
     <script type="text/x-template" id="template">
