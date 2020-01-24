@@ -13,7 +13,6 @@
 
 <body>
     <div id="main">
-
         <popup
         v-if="imageSelected"
         :image-id="imageSelected"
@@ -22,7 +21,7 @@
 
         <header>
             <h1>{{heading}}</h1>
-            <h2>Latest images: </h2>
+            <h3>The hottest place on the web</h3>
 
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
@@ -31,7 +30,6 @@
               </label>
               <em>Enable Dark Mode!</em>
             </div>
-            <div id="overlay"></div>
 
             <form class="main_form">
                 <input type="text" v-model="title" name="title" placeholder="title">
@@ -42,51 +40,57 @@
                 <label for="file">select file</label>
                 <button  @click="upload" class="upload">submit</button>
             </form>
+            <h2>Latest images: </h2>
         </header>
 
         <div class="flex_row">
-                <!-- <img :src="i.url" @click="imageSelected = i.id" class="image_list"> -->
-                <a v-for="i in images" class="image_box" :href="'#' + i.id">
-                    <img :src="i.url" class="image">
-                    <p class="title">{{i.title}}</p>
-                    <p class="description">{{i.description}}</p>
-                </a>
+            <a v-for="i in images" class="image_box" :href="'#' + i.id">
+                <img :src="i.url" class="image">
+                <p class="title">{{i.title}}</p>
+                <p class="description">{{i.description}}</p>
+            </a>
         </div>
         <button  @click="moreImages" class="more_button" v-if="showResultsButton">see more</button>
     </div> <!--end of #main vue div -->
 
     <script type="text/x-template" id="template">
+
         <div class="component">
+            <div class="overlay" @click="closeModal"></div>
+            <div class="popup">
 
-                    <div class="modal_data">
-                        <h1 class="modal_h1">{{title}}</h1>
-                        <h2 class="modal_h2">user: {{username}}</h2>
-                        <h2 class="modal_description">description: {{description}}</h2>
-                        <img :src="image" id="modal_image">
-                        <i @click="closeModal" class="fas fa-times"></i>
-                    </div>
+                <div class="modal_data">
+                    <h1 class="modal_h1">{{title}}</h1>
+                    <h2 class="modal_h2">user: {{username}}</h2>
+                    <h2 class="modal_description">description: {{description}}</h2>
+                    <img :src="image" id="modal_image">
+                    <i @click="closeModal" class="fas fa-times"></i>
+                    <!-- <div class="fas" @click="closeModal"> X</div> -->
+                </div>
 
-                    <div class="comments_box">
-                        <form>
-                            <input type="text" v-model="comment_username" name="comment_username" placeholder="username">
-                            <input type="text" v-model="comment" name="comment" placeholder="add comment: ">
-                            <button  @click="addComment">submit</button>
-                        </form>
-                        <section class="comment_scroll">
-                            <div v-for="c in comments" class="listed_comments">
-                                <p>Posted by: {{c.username}}</p>
-                                <p class="comment">{{c.comment}}</p>
-                            </div>
-                        </section>
-                    </div>
-                    <a class="left move" :href="'#' + leftId" v-if="leftId">
-                        <div class="go" id="left"> < go left</div>
-                        <img :src="leftImage" class="move_image left_image">
-                    </a>
-                    <a class="right move" :href="'#' + rightId" v-if="rightId">
-                        <div class="go" id="right">go right ></div>
-                        <img :src="rightImage" class="move_image right_image">
-                    </a>
+                <div class="comments_box">
+                    <form>
+                        <input type="text" v-model="comment_username" name="comment_username" placeholder="username">
+                        <textarea type="text" v-model="comment" name="comment" placeholder="add comment: " id="comment_form"></textarea>
+                        <button  @click="addComment">submit</button>
+                    </form>
+                    <section class="comment_scroll">
+                        <div v-for="c in comments" class="listed_comments">
+                            <p>Posted by: {{c.username}}</p>
+                            <p class="comment">{{c.comment}}</p>
+                        </div>
+                    </section>
+                </div>
+
+                <a class="left move" :href="'#' + leftId" v-if="leftId">
+                    <div class="go" id="left"> < go left</div>
+                    <img :src="leftImage" class="move_image left_image">
+                </a>
+                <a class="right move" :href="'#' + rightId" v-if="rightId">
+                    <div class="go" id="right">go right ></div>
+                    <img :src="rightImage" class="move_image right_image">
+                </a>
+            </div>
         </div>
     </script>
 

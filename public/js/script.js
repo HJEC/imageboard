@@ -27,27 +27,35 @@
         },
         methods: {
             closeModal: function() {
-                document.getElementById("overlay").classList.remove("overlay");
+                // document.getElementById("overlay").classList.remove("overlay");
                 this.$emit("close");
             },
             addComment: function(e) {
                 e.preventDefault();
-                var imageId = this.imageId,
-                    username = this.comment_username,
-                    comment = this.comment;
-                axios
-                    .post(`/addcomment/${imageId}/${username}/${comment}`)
-                    .then(res => {
-                        // console.log("main vue comment response: ", res.data);
-                        this.comments.push(res.data);
-                    });
+                var imageId = this.imageId;
+                var username = this.comment_username;
+                var comment = this.comment;
+                if (username == null || username == "") {
+                    username = "anon";
+                }
+                if (comment == null || comment == "") {
+                    window.alert("please enter comment");
+                } else {
+                    axios
+                        .post(`/addcomment/${imageId}/${username}/${comment}`)
+                        .then(res => {
+                            this.comments.push(res.data);
+                            this.comment_username = null;
+                            this.comment = null;
+                        });
+                }
             },
             showModal: function() {
                 var self = this;
-                var imageId = this.imageId;
-                document.getElementById("overlay").classList.add("overlay");
+                this.comments = [];
+                // document.getElementById("overlay").classList.add("overlay");
 
-                axios.get("/selected/" + imageId).then(function(res) {
+                axios.get("/selected/" + self.imageId).then(function(res) {
                     if (res.data == "") {
                         return self.closeModal();
                     }
@@ -60,7 +68,7 @@
                     self.leftImage = res.data.left_url;
                     self.rightImage = res.data.right_url;
                 });
-                axios.get(`/comments/${imageId}`).then(function(res) {
+                axios.get(`/comments/${self.imageId}`).then(function(res) {
                     for (var i in res.data) {
                         self.comments.push(res.data[i]);
                     }
@@ -105,24 +113,39 @@
             upload: function(e) {
                 var vueInstance = this;
                 e.preventDefault();
-                // console.log("this: ", this);
+                if (this.file == null) {
+                    window.alert("You must select a file! \nplease try again");
+                }
+                if (this.username == null || this.username == "") {
+                    this.username = "anon";
+                }
+                if (this.description == null || this.description == "") {
+                    window.alert("please enter comment");
+                } else {
+                    var formData = new FormData();
+                    // We need to use formData to send a file to the server
+                    formData.append("title", this.title);
+                    formData.append("description", this.description);
+                    formData.append("username", this.username);
+                    formData.append("file", this.file);
 
-                var formData = new FormData();
-                // We need to use formData to send a file to the server
-                formData.append("title", this.title);
-                formData.append("description", this.description);
-                formData.append("username", this.username);
-                formData.append("file", this.file);
-
-                axios
-                    .post("/upload", formData)
-                    .then(function(response) {
-                        console.log("response from POST /upload: ", response);
-                        vueInstance.images.unshift(response.data);
-                    })
-                    .catch(function(err) {
-                        console.log("Error in POST: ", err);
-                    });
+                    axios
+                        .post("/upload", formData)
+                        .then(function(response) {
+                            console.log(
+                                "response from POST /upload: ",
+                                response
+                            );
+                            vueInstance.images.unshift(response.data);
+                        })
+                        .catch(function(err) {
+                            console.log("Error in POST: ", err);
+                        });
+                }
+                this.title = "";
+                this.description = "";
+                this.username = "";
+                this.file = null;
             },
             handleChange: function(e) {
                 console.log("handlechange is running");

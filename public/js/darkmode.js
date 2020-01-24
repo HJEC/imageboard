@@ -6,10 +6,10 @@ function switchTheme(e) {
     if (e.target.checked) {
         console.log("dark switch on");
         document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark"); //add this
+        localStorage.setItem("theme", "dark");
     } else {
         document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("theme", "light"); //add this
+        localStorage.setItem("theme", "light");
     }
 }
 

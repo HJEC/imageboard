@@ -11,21 +11,29 @@
 header {
     display: grid;
     grid-template-columns: 900px 1fr;
-    grid-template-rows: 70px 70px 70px;
+    grid-template-rows: repeat(70px, 4);
     margin: 25px;
 }
 header h1 {
     grid-column: 1 / 2;
     font-size: 3rem;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
-header h2 {
+header h3 {
+    font-size: 1.4rem;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    font-size: 2rem;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    letter-spacing: 10px;
+}
+header h2 {
+    grid-column: 1 / 2;
+    grid-row: 4/ 5;
+    font-size: 1.6rem;
     align-self: end;
-    /* margin: 20px auto; */
+    margin-top: 20px;
 }
 
 .main_form {
@@ -34,7 +42,6 @@ header h2 {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
-    /* margin: 20px 20px; */
     height: 40px;
     width: 90vw;
 }
@@ -43,6 +50,16 @@ input,
 label,
 .upload {
     margin: 10px 10px;
+}
+
+input[type="text"] {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    background: none;
+}
+input[type="text"]:focus {
+    background: rgba(10, 10, 10, 0.2);
 }
 
 form label {
@@ -74,11 +91,14 @@ form label:hover {
 p {
     font-size: 0.7rem;
 }
-
+button {
+    cursor: pointer;
+}
 .more_button {
     margin: 20px 45%;
     height: 50px;
     width: 150px;
+    cursor: pointer;
 }
 
 /* Portrait */
