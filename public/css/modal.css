@@ -2,15 +2,17 @@
 .component {
     position: fixed;
     width: 750px;
-    top: 10vh;
+    top: 5vh;
     left: 10vw;
     bottom: 10vh;
     right: 40vw;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
     background-color: peachpuff;
+    border-bottom: solid 3px papayawhip;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 80px;
     z-index: 100;
 }
 
@@ -21,20 +23,36 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(23, 18, 19, 0.35);
+    background: rgba(23, 18, 19, 0.5);
 }
 
 .modal_data {
     grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+/* .modal_h2::-webkit-scrollbar {
+    display: none;
+} */
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: papayawhip;
+}
+*::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 55px;
+    background-color: black;
 }
 .listed_comments {
+    margin-top: 20px;
     grid-column: 2 / span 1;
     border-bottom: 1px solid black;
     width: 250px;
 }
 .comment_scroll {
+    height: 350px;
     overflow-y: scroll;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 80%;
 }
 .fas {
     position: absolute;
@@ -51,9 +69,12 @@
     font-size: 1.2rem;
     margin: 10px 15px;
     max-height: 80px;
-    /* max-width: 300px; */
     word-wrap: break-word;
-    overflow-y: scroll;
+}
+.modal_description {
+    font-size: 1rem;
+    margin: 15px 15px 5px 15px;
+    height: 60px;
 }
 #modal_image {
     width: 300px;
@@ -74,4 +95,83 @@
 }
 .comment {
     word-wrap: break-word;
+}
+
+.move {
+    position: fixed;
+    width: 160px;
+    height: auto;
+    margin: 0px 10px;
+    top: 5vh;
+}
+.left {
+    right: 27vw;
+}
+.right {
+    right: 15vw;
+}
+.go {
+    width: 150px;
+    height: auto;
+    background: peachpuff;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-bottom: solid 2px papayawhip;
+    margin-bottom: 15px;
+}
+
+.move:hover {
+    color: snow;
+    /* background: #e2c2a5; */
+}
+.move:hover ~ .left_image {
+    opacity: 0.5;
+}
+/* .move_image:hover {
+    opacity: 0.5;
+} */
+.left_image:hover ~ #left {
+    background: #e2c2a5;
+    color: snow;
+}
+.right_image:hover ~ #right {
+    background: #e2c2a5;
+    color: snow;
+}
+/* #left:hover ~ .left_image {
+    opacity: 0.5;
+}
+#right:hover ~ .right_image {
+    opacity: 0.5;
+} */
+
+#left {
+    /* top: 5vh;
+    right: 28.5vw; */
+}
+
+#right {
+    /* top: 5vh;
+    right: 15vw; */
+}
+
+.move_image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: peachpuff solid 3px;
+    border-radius: 10px;
+    /* position: fixed; */
+}
+
+.left_image {
+    /* top: 6vw;
+    right: 28.5vw; */
+}
+
+.right_image {
+    /* top: 6vw;
+    right: 15vw; */
 }

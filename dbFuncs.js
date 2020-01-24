@@ -34,17 +34,17 @@ exports.getMoreImages = function(lastId) {
         .then(({ rows }) => rows);
 };
 
-exports.importImages = function(url, username, title, description) {
+exports.importImages = function(url, title, description, username) {
     return db.query(
-        `INSERT INTO images (url, username, title, description) VALUES ($1, $2, $3, $4) RETURNING *`,
-        [url, username, title, description]
+        `INSERT INTO images (url, title, description, username) VALUES ($1, $2, $3, $4) RETURNING *`,
+        [url, title, description, username]
     );
 };
 
 exports.getClickedImage = function(id) {
     return db
         .query(
-            `SELECT url, username, title, description, id FROM images WHERE id = $1`,
+            `SELECT url, username, title, description, id, (SELECT id FROM images WHERE id > $1 LIMIT 1) AS left_id, (SELECT url FROM images WHERE id > $1 LIMIT 1) AS left_url, (SELECT id FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_id, (SELECT url FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_url FROM images WHERE id = $1`,
             [id]
         )
         .then(({ rows }) => rows);

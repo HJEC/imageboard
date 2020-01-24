@@ -10,35 +10,19 @@
                 username: null,
                 comment_username: null,
                 comment: null,
-                comments: []
+                comments: [],
+                leftId: null,
+                rightId: null,
+                leftImage: null,
+                rightImage: null
             };
         },
         mounted: function() {
-            console.log("mounted id: ", this.imageId);
-            var vueInstance = this;
-            var imageId = this.imageId;
-            document.getElementById("overlay").classList.add("overlay");
-
-            axios.get("/selected/" + imageId).then(function(res) {
-                // console.log("component request data: ", res.data);
-                vueInstance.image = res.data.url;
-                vueInstance.title = res.data.title;
-                vueInstance.description = res.data.description;
-                vueInstance.username = res.data.username;
-            });
-            axios.get(`/comments/${imageId}`).then(function(res) {
-                console.log("comments in get: ", res.data);
-                for (var i in res.data) {
-                    vueInstance.comments.push(res.data[i]);
-                }
-            });
+            this.showModal();
         },
         watch: {
             imageId: function() {
-                // in here we want to exactly the same as we did in mounted
-                // another problem we need to deal with is if the user tries to go to an image that doesn't exist.
-                // we probably want to lok at the responnse from the server.
-                // if the response is a valid thing, close the modal.
+                this.showModal();
             }
         },
         methods: {
@@ -57,6 +41,30 @@
                         // console.log("main vue comment response: ", res.data);
                         this.comments.push(res.data);
                     });
+            },
+            showModal: function() {
+                var self = this;
+                var imageId = this.imageId;
+                document.getElementById("overlay").classList.add("overlay");
+
+                axios.get("/selected/" + imageId).then(function(res) {
+                    if (res.data == "") {
+                        return self.closeModal();
+                    }
+                    self.image = res.data.url;
+                    self.title = res.data.title;
+                    self.description = res.data.description;
+                    self.username = res.data.username;
+                    self.leftId = res.data.left_id;
+                    self.rightId = res.data.right_id;
+                    self.leftImage = res.data.left_url;
+                    self.rightImage = res.data.right_url;
+                });
+                axios.get(`/comments/${imageId}`).then(function(res) {
+                    for (var i in res.data) {
+                        self.comments.push(res.data[i]);
+                    }
+                });
             }
         }
     });
@@ -81,7 +89,6 @@
             axios
                 .get("/images")
                 .then(res => {
-                    // console.log("response is: ", res.data);
                     this.images = res.data;
                 })
                 .catch(function(err) {
@@ -90,7 +97,6 @@
         },
         updated: function() {
             axios.get("/last").then(res => {
-                console.log("response from get last: ", res);
                 if (this.images[this.images.length - 1].id == res.data[0].id)
                     this.showResultsButton = false;
             });
@@ -125,26 +131,20 @@
             },
             closeMe: function() {
                 this.imageSelected = null;
-                console.log("V.MAIN: Method fired. Count is: ");
                 // location.hash = "";
                 history.replaceState(null, null, " ");
             },
             moreImages: function() {
-                console.log(
-                    "Id of last image: ",
-                    this.images[this.images.length - 1].id
-                );
                 let lastId = this.images[this.images.length - 1].id;
                 axios
                     .get(`/images/${lastId}`)
                     .then(res => {
                         for (let i in res.data) {
-                            // console.log("response is: ", res.data[i]);
                             this.images.push(res.data[i]);
                         }
                     })
                     .catch(function(err) {
-                        console.log("error in GMI: ", err);
+                        console.log("moreImages method err: ", err);
                     });
             }
         }

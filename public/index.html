@@ -20,19 +20,18 @@
         @close="closeMe"
         ></popup>
 
-        <div id="overlay"></div>
         <header>
             <h1>{{heading}}</h1>
             <h2>Latest images: </h2>
 
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-            <em>Enable Dark Mode!</em>
-        </div>
-
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+              </label>
+              <em>Enable Dark Mode!</em>
+            </div>
+            <div id="overlay"></div>
 
             <form class="main_form">
                 <input type="text" v-model="title" name="title" placeholder="title">
@@ -62,7 +61,7 @@
                     <div class="modal_data">
                         <h1 class="modal_h1">{{title}}</h1>
                         <h2 class="modal_h2">user: {{username}}</h2>
-                        <h2 class="modal_h2">description: {{description}}</h2>
+                        <h2 class="modal_description">description: {{description}}</h2>
                         <img :src="image" id="modal_image">
                         <i @click="closeModal" class="fas fa-times"></i>
                     </div>
@@ -80,9 +79,17 @@
                             </div>
                         </section>
                     </div>
+                    <div class="left move">
+                        <div class="go" id="left"> < go left</div>
+                        <img :src="leftImage" class="move_image left_image">
+                    </div>
+                    <div class="right move">
+                        <div class="go" id="right">go right ></div>
+                        <img :src="rightImage" class="move_image right_image">
+                    </div>
         </div>
     </script>
-    
+
     <script src="/js/darkmode.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>

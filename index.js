@@ -45,7 +45,6 @@ app.get("/images", (req, res) => {
     getImages().then(rows => {
         res.json(rows);
     });
-    console.log("images: ", getImages());
 });
 
 app.get("/images/:lastId", (req, res) => {
@@ -64,7 +63,7 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
 
     console.log("file contents:", url, title, username, description);
 
-    importImages(url, title, username, description)
+    importImages(url, title, description, username)
         .then(response => {
             console.log("response from import:", response.rows[0]);
             res.json(response.rows[0]);
@@ -80,6 +79,7 @@ app.get("/selected/:id", (req, res) => {
     let id = req.params.id;
     getClickedImage(id)
         .then(rows => {
+            console.log("SEL IMG json:", rows);
             res.json(rows[0]);
         })
         .catch(err => console.log("Server error in Modal request: ", err));
@@ -88,7 +88,7 @@ app.get("/selected/:id", (req, res) => {
 // LAST IMAGE ROUTE
 app.get("/last", (req, res) => {
     findLastImage().then(response => {
-        console.log("database response:", response);
+        // console.log("database response:", response);
         res.json(response);
     });
 });
