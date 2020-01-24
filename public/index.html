@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/modal.css">
     <link rel="stylesheet" href="/css/mainImages.css">
+    <link rel="stylesheet" href="/css/darkmode.css">
     <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="main">
-        <div id="overlay"></div>
-        <h1>{{heading}}</h1>
-        <h2>Latest images: </h2>
 
         <popup
         v-if="imageSelected"
@@ -22,15 +20,30 @@
         @close="closeMe"
         ></popup>
 
-        <form class="main_form">
-            <input type="text" v-model="title" name="title" placeholder="title">
-            <input type="text" v-model="description" name="description" placeholder="description">
-            <input type="text" v-model="username" name="username" placeholder="username">
+        <div id="overlay"></div>
+        <header>
+            <h1>{{heading}}</h1>
+            <h2>Latest images: </h2>
 
-            <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
-            <label for="file">select file</label>
-            <button  @click="upload" class="upload">submit</button>
-        </form>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <em>Enable Dark Mode!</em>
+        </div>
+
+
+            <form class="main_form">
+                <input type="text" v-model="title" name="title" placeholder="title">
+                <input type="text" v-model="description" name="description" placeholder="description">
+                <input type="text" v-model="username" name="username" placeholder="username">
+
+                <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
+                <label for="file">select file</label>
+                <button  @click="upload" class="upload">submit</button>
+            </form>
+        </header>
 
         <div class="flex_row">
                 <!-- <img :src="i.url" @click="imageSelected = i.id" class="image_list"> -->
@@ -69,7 +82,8 @@
                     </div>
         </div>
     </script>
-
+    
+    <script src="/js/darkmode.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
     <script src="/js/script.js"></script>
