@@ -14,11 +14,12 @@
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" :class="fixed">
         <popup
         v-if="imageSelected"
         :image-id="imageSelected"
         @close="closeMe"
+        @fixed="setFixed"
         ></popup>
 
         <header>
@@ -42,8 +43,7 @@
                 <label for="file">select file 📁</label>
                 <i @click="upload"  class="fas upload fa-arrow-circle-up"></i>
                 <!-- <button  @click="upload" class="upload">submit</button> -->
-            </form>
-            <select name="filterSelect">
+                <select name="filterSelect">
                 <option value="null">Select Filter</option>
                 <option value="monochrome">monochrome</option>
                 <option value="sierra">sierra</option>
@@ -54,6 +54,7 @@
                 <option value="invert">invert</option>
                 <option value="animated">!!DISCO TIME!!</option>
             </select>
+            </form>
             <audio></audio>
             <h2>Latest images: </h2>
         </header>
@@ -64,8 +65,8 @@
                 <p class="title">{{i.title}}</p>
                 <p class="description">{{i.description}}</p>
             </a>
+            <button  @click="moreImages" class="button " v-if="showResultsButton">see more</button>
         </div>
-        <button  @click="moreImages" class="button " v-if="showResultsButton">see more</button>
     </div> <!--end of #main vue div -->
 
     <script type="text/x-template" id="template">
@@ -105,6 +106,11 @@
                     <div class="go" id="right">go right ></div>
                     <img :src="rightImage" class="move_image right_image">
                 </a>
+                <a class="up shift" :href="'#' + leftId" v-if="leftId">
+                    <i class="fas fa-long-arrow-alt-up" id="upwards"></i></a>
+                <a class="down shift" :href="'#' + rightId" v-if="rightId">
+                    <i class="fas fa-long-arrow-alt-down" id="downwards"></i></a>
+
             </div>
         </div>
     </script>

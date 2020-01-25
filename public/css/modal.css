@@ -33,7 +33,9 @@
     right: 0;
     background: rgba(23, 18, 19, 0.5);
 }
-
+.fixed {
+    position: fixed;
+}
 .modal_data {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -181,6 +183,9 @@ textarea:focus {
     border-radius: 10px;
 }
 
+.shift {
+    visibility: hidden;
+}
 /* SCROLLBAR  */
 
 *::-webkit-scrollbar {

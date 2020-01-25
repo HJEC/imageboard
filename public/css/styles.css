@@ -27,7 +27,7 @@ img {
 /* HEADER  */
 header {
     display: grid;
-    grid-template-columns: 75% 1fr;
+    grid-template-columns: 75% 25%;
     grid-template-rows: repeat(70px, 4);
     margin: 25px;
 }
@@ -62,18 +62,20 @@ header h2 {
 /* FORM  */
 
 .main_form {
+    position: relative;
     grid-column: 1 / 3;
     grid-row: 3/ 4;
     display: flex;
     flex-wrap: wrap;
     align-self: center;
-    height: 40px;
+    min-height: 40px;
+    max-height: 200px;
     width: 90vw;
 }
 
 input[type="text"],
 label {
-    margin: auto 10px;
+    margin: 20px 10px;
 }
 
 input[type="text"] {
@@ -103,6 +105,7 @@ form label {
     border-radius: 4px;
     cursor: pointer;
     transition: bottom ease 0.5s;
+    margin: 30px auto 10px auto;
 }
 
 form label:hover {
@@ -150,6 +153,8 @@ select {
     border-radius: 5px;
     grid-column: 2 / 3;
     grid-row: 3/ 4;
+    height: 40px;
+    margin: 20px auto;
 }
 option {
     background: var(--bg-color);

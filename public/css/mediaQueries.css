@@ -5,19 +5,97 @@
     }
 }
 
-@media screen and (min-width: 550px) and (max-width: 750px) {
+@media screen and (min-width: 550px) and (max-width: 780px) {
+    /* MAIN */
     * {
+        font-size: 18px;
     }
     body {
-        width: 700px;
+        width: 750px;
     }
     header {
-        width: 100%;
         display: flex;
         flex-direction: column;
         text-align: center;
+        width: 90%;
+        margin: 20px auto;
     }
     header h1 {
-        margin: 20px;
+        margin: 20px auto;
+    }
+    header h3 {
+        width: 70%;
+        margin: 20px auto;
+        line-height: 40px;
+    }
+    .main_form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 500px;
+        margin: 20px 40px;
+        height: 120px;
+    }
+
+    /* MODAL */
+    .popup {
+        position: fixed;
+        width: 90%;
+        top: 20px;
+        left: 10px;
+        bottom: 20px;
+        right: 10px;
+        border-radius: 8px;
+        border-bottom-right-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 100px;
+        z-index: 100;
+    }
+    .move {
+        visibility: hidden;
+    }
+    .move_image {
+        visibility: hidden;
+    }
+    .shift {
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+        background: var(--beta-color);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .up {
+        margin: auto auto 15px 50px;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .up:hover {
+        background-color: var(--input-placeholder);
+    }
+    .up:active {
+        background-color: var(--input-placeholder);
+    }
+    #upwards {
+        font-size: 2.5rem;
+    }
+    .down {
+        margin: auto 50px 15px auto;
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .down:hover {
+        background-color: var(--input-placeholder);
+    }
+    .down:active {
+        background-color: var(--input-placeholder);
+    }
+    #downwards {
+        font-size: 3rem;
     }
 }

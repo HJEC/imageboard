@@ -52,7 +52,7 @@
             showModal: function() {
                 var self = this;
                 this.comments = [];
-
+                this.$emit("fixed");
                 axios.get("/selected/" + self.imageId).then(function(res) {
                     if (res.data == "") {
                         return self.closeModal();
@@ -85,6 +85,7 @@
             username: "",
             file: null,
             selectedFilter: null,
+            fixed: null,
             showResultsButton: true
         },
         mounted: function() {
@@ -155,6 +156,7 @@
             },
             closeMe: function() {
                 this.imageSelected = null;
+                this.fixed = null;
                 // location.hash = "";
                 history.replaceState(null, null, " ");
             },
@@ -225,6 +227,9 @@
                         disco.play();
                     }
                 };
+            },
+            setFixed: function() {
+                this.fixed = "fixed";
             }
         }
     });
