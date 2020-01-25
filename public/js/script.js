@@ -52,7 +52,6 @@
             showModal: function() {
                 var self = this;
                 this.comments = [];
-                // document.getElementById("overlay").classList.add("overlay");
 
                 axios.get("/selected/" + self.imageId).then(function(res) {
                     if (res.data == "") {

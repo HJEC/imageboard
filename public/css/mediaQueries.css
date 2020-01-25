@@ -1,0 +1,24 @@
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .flex_row {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 700px) and (orientation: portrait) {
+    * {
+        font-size: 10px;
+        margin: 0px;
+    }
+    body {
+        width: 700px;
+    }
+    header {
+        display: flex;
+        /* grid-template-rows: 100px 80px 200px 100px; */
+    }
+    header h1 {
+        font-size: 5px;
+        !color: blue;
+    }
+}

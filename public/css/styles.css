@@ -27,7 +27,7 @@ img {
 /* HEADER  */
 header {
     display: grid;
-    grid-template-columns: 900px 1fr;
+    grid-template-columns: 75% 1fr;
     grid-template-rows: repeat(70px, 4);
     margin: 25px;
 }
@@ -46,7 +46,7 @@ header h3 {
     grid-row: 2 / 3;
     margin-left: 10px;
     margin-bottom: 15px;
-    letter-spacing: 10px;
+    letter-spacing: 11px;
 }
 header h3::before {
     content: var(--subtitle-content);
@@ -153,11 +153,4 @@ select {
 }
 option {
     background: var(--bg-color);
-}
-
-/* Portrait */
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-    .flex_row {
-        flex-direction: column;
-    }
 }
