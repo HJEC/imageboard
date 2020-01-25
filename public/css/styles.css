@@ -153,11 +153,6 @@ select {
 }
 option {
     background: var(--bg-color);
-    outline: none;
-}
-option:active {
-    background: peachpuff;
-    color: white;
 }
 
 /* Portrait */

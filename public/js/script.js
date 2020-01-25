@@ -27,7 +27,6 @@
         },
         methods: {
             closeModal: function() {
-                // document.getElementById("overlay").classList.remove("overlay");
                 this.$emit("close");
             },
             addComment: function(e) {
@@ -86,6 +85,7 @@
             description: "",
             username: "",
             file: null,
+            selectedFilter: null,
             showResultsButton: true
         },
         mounted: function() {
@@ -109,6 +109,7 @@
                     this.showResultsButton = false;
             });
             this.darkMode();
+            this.changeFilter();
         },
         methods: {
             upload: function(e) {
@@ -173,9 +174,6 @@
             },
             darkMode: function() {
                 const toggleSwitch = document.getElementById("checkbox");
-
-                console.log("tgs: ", toggleSwitch.checked);
-
                 function switchTheme(e) {
                     if (e.target.checked) {
                         console.log("dark switch on");
@@ -209,6 +207,25 @@
                         toggleSwitch.checked = true;
                     }
                 }
+            },
+            changeFilter: function() {
+                var select = document.querySelector("select");
+                var disco = document.querySelector("audio");
+                select.onchange = () => {
+                    // this will detect any change to select element
+                    var filter = select.options[select.selectedIndex].value;
+                    //this will grab the value of option at clicked index
+                    this.selectedFilter = filter;
+                    if (filter !== "animated") {
+                        console.log("STOP PLEASE!");
+                        disco.src = "";
+                        disco.pause();
+                    }
+                    if (filter == "animated") {
+                        disco.src = "/stuff/room5.mp3";
+                        disco.play();
+                    }
+                };
             }
         }
     });

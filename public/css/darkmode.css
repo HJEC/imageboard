@@ -11,6 +11,7 @@
     --input-placeholder: grey;
     --title-content: "HOT DOGS";
     --subtitle-content: "The hottest pooches on the web";
+    --em-content: "switch to dark mode!";
 }
 
 [data-theme="dark"] {
@@ -24,7 +25,8 @@
     --input-focus: rgba(255, 255, 255, 0);
     --input-placeholder: #fff;
     --title-content: "COOL BOYS";
-    --subtitle-content: "ooooh, so chill 😎";
+    --subtitle-content: "Who likes to party? ";
+    --em-content: "switch to light mode!";
 }
 #main {
     background-color: var(--bg-color);
@@ -49,6 +51,9 @@ body {
     }
 }
 
+em::before {
+    content: var(--em-content);
+}
 .theme-switch {
     display: inline-block;
     height: 40px;
@@ -83,7 +88,7 @@ body {
 }
 
 #checkbox:checked + .slider {
-    background-color: #dcb9ff;
+    background-color: peachpuff;
 }
 
 input:checked + .slider:before {

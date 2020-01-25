@@ -1,26 +1,39 @@
-.grayscale {
-    filter: grayscale(100%);
+.monochrome {
+    filter: brightness(1.2) contrast(0.85) saturate(0.05) sepia(0.2);
 }
-
+.sierra {
+    filter: sepia(0.2) hue-rotate(-40deg) saturate(1.4);
+}
+.kelvin {
+    filter: sepia(0.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+}
+.sepia {
+    filter: sepia(0.6);
+}
+.walden {
+    filter: sepia(0.35) contrast(0.8) brightness(1.25) saturate(1.4);
+}
+.blur {
+    filter: blur(3px);
+}
 .invert {
     filter: invert(100%);
 }
-
-.sepia {
-    filter: sepia(100%);
-}
-
 .animated {
-    -webkit-animation: filter-animation 3s infinite;
+    -webkit-animation: filter-animation 0.55s 60;
 }
 
 @-webkit-keyframes filter-animation {
     0% {
-        -webkit-filter: sepia(0) saturate(2);
+        -webkit-filter: brightness(0.5) saturate(5);
+    }
+
+    25% {
+        -webkit-filter: sepia(1) saturate(8);
     }
 
     50% {
-        -webkit-filter: sepia(1) saturate(8);
+        -webkit-filter: hue-rotate(40deg) saturate(4);
     }
 
     100% {

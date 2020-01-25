@@ -20,6 +20,9 @@
         @close="closeMe"
         ></popup>
 
+        <audio>
+
+        </audio>
         <header>
             <h1></h1>
             <h3></h3>
@@ -29,7 +32,7 @@
                     <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
               </label>
-              <em>Enable Dark Mode!</em>
+              <em></em>
             </div>
 
             <form class="main_form">
@@ -43,17 +46,22 @@
                 <!-- <button  @click="upload" class="upload">submit</button> -->
             </form>
             <select name="filterSelect">
-                <option value="grayscale">grayscale</option>
-                <option value="invert">invert</option>
+                <option value="null">Select Filter</option>
+                <option value="monochrome">monochrome</option>
+                <option value="sierra">sierra</option>
+                <option value="kelvin">kelvin</option>
                 <option value="sepia">sepia</option>
-                <option value="!!ANIMATED!!">!!ANIMATED!!</option>
+                <option value="walden">walden</option>
+                <option value="blur">blur</option>
+                <option value="invert">invert</option>
+                <option value="animated">!!DISCO TIME!!</option>
             </select>
             <h2>Latest images: </h2>
         </header>
 
         <div class="flex_row">
             <a v-for="i in images" class="image_box" :href="'#' + i.id">
-                <img :src="i.url" class="image">
+                <img :src="i.url" :class="selectedFilter" id="mainImage">
                 <p class="title">{{i.title}}</p>
                 <p class="description">{{i.description}}</p>
             </a>
