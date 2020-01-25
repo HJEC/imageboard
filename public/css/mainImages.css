@@ -3,12 +3,10 @@
 .title {
     font-weight: bold;
     margin-bottom: 5px;
-    color: black;
 }
 
 .description {
     margin-bottom: 0;
-    color: black;
 }
 
 .flex_row {
@@ -23,7 +21,8 @@
     flex-direction: column;
     width: 315px;
     margin: 20px auto;
-    border: 2px solid black;
+    border: 2px solid var(--border-color);
+    background: var(--bg-color);
     border-radius: 5px;
     padding: 5px;
 }
@@ -32,10 +31,16 @@
     height: 250px;
     object-fit: scale-down;
     border-radius: 5px;
-    box-shadow: 0px 3px 4px grey;
+    box-shadow: 0px 3px 4px var(--shadow-color);
     margin-bottom: 10px;
 }
 
-a {
-    text-decoration: none;
+.button {
+    color: black;
+    margin: 20px 45%;
+    height: 50px;
+    width: 150px;
+    border-radius: 15px;
+    outline: none;
+    font-weight: bold;
 }

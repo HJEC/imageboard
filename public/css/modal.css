@@ -15,8 +15,9 @@
     right: 35vw;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
-    background-color: peachpuff;
-    border-bottom: solid 3px papayawhip;
+    background-color: var(--primary-color);
+    border-bottom: solid 3px var(--beta-color);
+    border-right: solid 4px var(--beta-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 80px;
@@ -38,34 +39,6 @@
     grid-row: 1 / span 1;
 }
 
-*::-webkit-scrollbar {
-    width: 5px;
-    background-color: papayawhip;
-}
-*::-webkit-scrollbar-thumb {
-    width: 6px;
-    height: 55px;
-    background-color: black;
-}
-.listed_comments {
-    margin-top: 20px;
-    grid-column: 2 / span 1;
-    border-bottom: 1px solid black;
-    width: 250px;
-}
-.comment_scroll {
-    height: 350px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    width: 90%;
-}
-.fas {
-    position: absolute;
-    cursor: pointer;
-    top: 15px;
-    right: 45px;
-    font-size: 2rem;
-}
 .modal_h1 {
     margin: 10px 15px;
     font-size: 1.8rem;
@@ -90,10 +63,49 @@
     border: solid 3px grey;
     padding: 2px;
     object-fit: cover;
+    cursor: auto;
 }
 
-.comments_box input textarea {
+/* TOP RIGHT CORNER  */
+
+.close {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 45px;
+    font-size: 2rem;
+}
+
+#comment_submit {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* COMMENTS SECTION  */
+
+.listed_comments {
+    margin-top: 20px;
+    grid-column: 2 / span 1;
+    border-bottom: 1px solid var(--border-color);
+    width: 250px;
+}
+.comment_scroll {
+    margin-top: 10px;
+    height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 90%;
+}
+
+.comments_box input,
+textarea {
     margin: 15px 10px;
+    width: 245px;
 }
 
 textarea {
@@ -102,13 +114,14 @@ textarea {
     background: none;
     resize: vertical;
     min-height: 50px;
-    max-height: 100px;
-    margin: 10px;
-    max-width: 250px;
-    border-bottom: 1px solid black;
-    -webkit-transition: height 0.4s ease-in-out;
-    transition: height 0.4s ease-in-out;
+    max-height: 90px;
+    border-bottom: 1px solid var(--border-color);
 }
+
+textarea:focus {
+    background: var(--input-focus);
+}
+
 .comments_box p {
     margin: 10px auto;
     display: block;
@@ -116,6 +129,8 @@ textarea {
 .comment {
     word-wrap: break-word;
 }
+
+/* MOVE BUTTONS  */
 
 .move {
     position: fixed;
@@ -133,12 +148,12 @@ textarea {
 .go {
     width: 150px;
     height: auto;
-    background: peachpuff;
-    color: black;
+    background: var(--primary-color);
+    color: var(--font-color);
     border-radius: 10px;
     font-size: 1.1rem;
     padding: 10px;
-    border-bottom: solid 2px papayawhip;
+    border-bottom: solid 2px var(--beta-color);
     margin-bottom: 15px;
 }
 
@@ -162,6 +177,18 @@ textarea {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-bottom: peachpuff solid 3px;
+    border-bottom: var(--beta-color) solid 3px;
     border-radius: 10px;
+}
+
+/* SCROLLBAR  */
+
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: papayawhip;
+}
+*::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 55px;
+    background-color: black;
 }

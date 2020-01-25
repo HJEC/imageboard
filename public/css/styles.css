@@ -1,3 +1,4 @@
+/* GENERIC  */
 * {
     font-size: 20px;
     box-sizing: border-box;
@@ -5,9 +6,25 @@
     font-family: freight-sans-pro, sans-serif;
     font-style: normal;
     font-weight: 500;
+    color: var(--font-color);
 }
 
-/* MAIN PAGE  */
+p {
+    font-size: 0.7rem;
+}
+
+a {
+    text-decoration: none;
+}
+button {
+    cursor: pointer;
+}
+
+img {
+    cursor: pointer;
+}
+
+/* HEADER  */
 header {
     display: grid;
     grid-template-columns: 900px 1fr;
@@ -19,6 +36,9 @@ header h1 {
     font-size: 3rem;
     margin-bottom: 0px;
 }
+header h1::before {
+    content: var(--title-content);
+}
 
 header h3 {
     font-size: 1.4rem;
@@ -28,6 +48,9 @@ header h3 {
     margin-bottom: 15px;
     letter-spacing: 10px;
 }
+header h3::before {
+    content: var(--subtitle-content);
+}
 header h2 {
     grid-column: 1 / 2;
     grid-row: 4/ 5;
@@ -35,6 +58,8 @@ header h2 {
     align-self: end;
     margin-top: 20px;
 }
+
+/* FORM  */
 
 .main_form {
     grid-column: 1 / 3;
@@ -46,37 +71,51 @@ header h2 {
     width: 90vw;
 }
 
-input,
-label,
-.upload {
-    margin: 10px 10px;
+input[type="text"],
+label {
+    margin: auto 10px;
 }
 
 input[type="text"] {
     outline: none;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--border-color);
     background: none;
 }
+
+input::placeholder {
+    color: var(--input-placeholder);
+}
+textarea::placeholder {
+    color: var(--input-placeholder);
+}
 input[type="text"]:focus {
-    background: rgba(10, 10, 10, 0.2);
+    background: var(--input-focus);
 }
 
 form label {
-    font-size: 1em;
-    font-weight: 500;
-    width: 120px;
-    color: white;
-    background-color: black;
-    display: inline-block;
+    position: relative;
+    height: 30px;
+    width: 140px;
+    color: var(--font-other);
+    background-color: var(--font-color);
     text-align: center;
-    padding: 3px 5px;
-    border-radius: 2px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: bottom ease 0.5s;
 }
 
 form label:hover {
-    background-color: darkslategrey;
+    box-shadow: 0px 5px 3px var(--shadow-color);
+    background-color: var(--beta-color);
+    color: black;
+    font-weight: bold;
+    bottom: 4px;
+}
+
+form label:active {
+    background-color: peachpuff;
+    box-shadow: 0px 3px 5px #dcb9ff;
 }
 
 #file {
@@ -88,17 +127,37 @@ form label:hover {
     z-index: -1;
 }
 
-p {
-    font-size: 0.7rem;
-}
-button {
+.upload {
     cursor: pointer;
+    margin: auto 20px;
+    font-size: 1.9rem;
 }
-.more_button {
-    margin: 20px 45%;
-    height: 50px;
-    width: 150px;
-    cursor: pointer;
+.upload:hover {
+    color: peachpuff;
+    border-bottom: 5px solid #dcb9ff;
+    border-radius: 60px;
+}
+.upload:active {
+    box-shadow: 0px 3px 6px var(--shadow-color);
+}
+
+select {
+    color: var(--font-color);
+    background: none;
+    outline: none;
+    justify-self: center;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    grid-column: 2 / 3;
+    grid-row: 3/ 4;
+}
+option {
+    background: var(--bg-color);
+    outline: none;
+}
+option:active {
+    background: peachpuff;
+    color: white;
 }
 
 /* Portrait */

@@ -2,12 +2,13 @@
 <html lang="en" dir="ltr">
 <head>
     <title>imageboard</title>
-    <link rel="icon" href="/stuff/image.png">
+    <link rel="icon" href="/stuff/dog_logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/darkmode.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/modal.css">
     <link rel="stylesheet" href="/css/mainImages.css">
-    <link rel="stylesheet" href="/css/darkmode.css">
+    <link rel="stylesheet" href="/css/filters.css">
     <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous"></script>
 </head>
 
@@ -20,12 +21,12 @@
         ></popup>
 
         <header>
-            <h1>{{heading}}</h1>
-            <h3>The hottest place on the web</h3>
+            <h1></h1>
+            <h3></h3>
 
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
+                    <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
               </label>
               <em>Enable Dark Mode!</em>
@@ -37,9 +38,16 @@
                 <input type="text" v-model="username" name="username" placeholder="username">
 
                 <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
-                <label for="file">select file</label>
-                <button  @click="upload" class="upload">submit</button>
+                <label for="file">select file 📁</label>
+                <i @click="upload"  class="fas upload fa-arrow-circle-up"></i>
+                <!-- <button  @click="upload" class="upload">submit</button> -->
             </form>
+            <select name="filterSelect">
+                <option value="grayscale">grayscale</option>
+                <option value="invert">invert</option>
+                <option value="sepia">sepia</option>
+                <option value="!!ANIMATED!!">!!ANIMATED!!</option>
+            </select>
             <h2>Latest images: </h2>
         </header>
 
@@ -50,7 +58,7 @@
                 <p class="description">{{i.description}}</p>
             </a>
         </div>
-        <button  @click="moreImages" class="more_button" v-if="showResultsButton">see more</button>
+        <button  @click="moreImages" class="button " v-if="showResultsButton">see more</button>
     </div> <!--end of #main vue div -->
 
     <script type="text/x-template" id="template">
@@ -64,7 +72,7 @@
                     <h2 class="modal_h2">user: {{username}}</h2>
                     <h2 class="modal_description">description: {{description}}</h2>
                     <img :src="image" id="modal_image">
-                    <i @click="closeModal" class="fas fa-times"></i>
+                    <i @click="closeModal" class="fas close fa-times"></i>
                     <!-- <div class="fas" @click="closeModal"> X</div> -->
                 </div>
 
@@ -72,7 +80,7 @@
                     <form>
                         <input type="text" v-model="comment_username" name="comment_username" placeholder="username">
                         <textarea type="text" v-model="comment" name="comment" placeholder="add comment: " id="comment_form"></textarea>
-                        <button  @click="addComment">submit</button>
+                        <button  @click="addComment" id="comment_submit">submit</button>
                     </form>
                     <section class="comment_scroll">
                         <div v-for="c in comments" class="listed_comments">
@@ -94,7 +102,6 @@
         </div>
     </script>
 
-    <script src="/js/darkmode.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
     <script src="/js/script.js"></script>

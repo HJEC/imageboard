@@ -81,7 +81,6 @@
         el: "#main",
         data: {
             imageSelected: location.hash.slice(1),
-            heading: "HOT DOGS",
             images: [],
             title: "",
             description: "",
@@ -102,12 +101,14 @@
                 .catch(function(err) {
                     console.log("error: ", err);
                 });
+            this.darkMode();
         },
         updated: function() {
             axios.get("/last").then(res => {
                 if (this.images[this.images.length - 1].id == res.data[0].id)
                     this.showResultsButton = false;
             });
+            this.darkMode();
         },
         methods: {
             upload: function(e) {
@@ -169,6 +170,45 @@
                     .catch(function(err) {
                         console.log("moreImages method err: ", err);
                     });
+            },
+            darkMode: function() {
+                const toggleSwitch = document.getElementById("checkbox");
+
+                console.log("tgs: ", toggleSwitch.checked);
+
+                function switchTheme(e) {
+                    if (e.target.checked) {
+                        console.log("dark switch on");
+                        document.documentElement.setAttribute(
+                            "data-theme",
+                            "dark"
+                        );
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        document.documentElement.setAttribute(
+                            "data-theme",
+                            "light"
+                        );
+                        localStorage.setItem("theme", "light");
+                    }
+                }
+
+                toggleSwitch.addEventListener("change", switchTheme, false);
+
+                const currentTheme = localStorage.getItem("theme")
+                    ? localStorage.getItem("theme")
+                    : null;
+
+                if (currentTheme) {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        currentTheme
+                    );
+
+                    if (currentTheme === "dark") {
+                        toggleSwitch.checked = true;
+                    }
+                }
             }
         }
     });
