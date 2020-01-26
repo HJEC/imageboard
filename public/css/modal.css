@@ -10,9 +10,9 @@
     position: fixed;
     min-width: 750px;
     top: 5vh;
-    left: 25vw;
+    left: 21vw;
     bottom: 10vh;
-    right: 35vw;
+    right: 36vw;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
     background-color: var(--primary-color);
@@ -36,6 +36,9 @@
 .fixed {
     position: fixed;
 }
+
+/* LEFT SIDE  */
+
 .modal_data {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -76,6 +79,11 @@
     top: 15px;
     right: 45px;
     font-size: 2rem;
+    transition: transform 0.3s;
+}
+.close:hover {
+    transform: scale(1.4);
+    color: #818cab;
 }
 
 #comment_submit {
@@ -86,6 +94,13 @@
     font-weight: bold;
     border-radius: 5px;
     outline: none;
+    transition: transform 0.2s;
+}
+#comment_submit:hover {
+    transform: translateY(3px);
+}
+#comment_submit:active {
+    background-color: var(--shadow-color);
 }
 
 /* COMMENTS SECTION  */
@@ -106,8 +121,9 @@
 
 .comments_box input,
 textarea {
-    margin: 15px 10px;
+    margin: 10px 10px 5px 10px;
     width: 245px;
+    padding: 4px;
 }
 
 textarea {
@@ -140,9 +156,11 @@ textarea:focus {
     height: auto;
     margin: 0px 10px;
     top: 25vh;
+    transition: transform 0.2s;
 }
+
 .left {
-    left: 10vw;
+    left: 7vw;
 }
 .right {
     right: 10vw;
@@ -157,6 +175,14 @@ textarea:focus {
     padding: 10px;
     border-bottom: solid 2px var(--beta-color);
     margin-bottom: 15px;
+}
+
+/* NAVIGATION HOVER  */
+.left:hover {
+    transform: translateX(-20px);
+}
+.right:hover {
+    transform: translateX(20px);
 }
 
 .left:hover .left_image {
