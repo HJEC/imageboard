@@ -62,11 +62,6 @@
         font-size: 0.8rem;
     }
     /* LEFT SIDE  */
-    #modal_image {
-        width: 200px;
-        height: 200px;
-        margin: 5px 10px;
-    }
 
     /* RIGHT SIDE  */
 
@@ -135,7 +130,8 @@
         background-color: var(--input-placeholder);
         transform: translateY(-10px);
     }
-    #upwards {
+    #upwards,
+    #downwards {
         font-size: 2.5rem;
     }
     .down {
@@ -152,8 +148,13 @@
         transform: translateY(10px);
         background-color: var(--input-placeholder);
     }
-    #downwards {
-        font-size: 2.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    #modal_image {
+        width: 225px;
+        height: 225px;
+        margin: 5px 10px;
     }
 }
 
@@ -171,11 +172,6 @@
 
 /* MEDIUM PHONE  */
 @media screen and (max-width: 430px) and (orientation: portrait) {
-    .close {
-        top: 2vh;
-        left: 49vw;
-        font-size: 1.6rem;
-    }
     header h2 {
         align-self: center;
     }
@@ -220,11 +216,11 @@
         grid-row: 1/2;
         grid-column: 1 / 1;
         display: grid;
-        grid-row: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 40px 40px 80px;
     }
     #modal_image {
         grid-row: 1 / 2;
-        margin: 8vh 10px 20px 10px;
+        margin: 15vh 10px 20px 10px;
         height: 250px;
         width: 94vw;
     }
@@ -259,9 +255,38 @@
         max-height: fit-content;
     }
 
-    .shift {
-        visibility: hidden;
+    /* NAVIGATION */
+    .close {
+        top: 4vh;
+        left: 50vw;
+        font-size: 1.8rem;
+        width: 20px;
     }
+    .shift {
+        visibility: visible;
+        margin: 0;
+        width: 45px;
+        height: 45px;
+    }
+    .up {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        grid-row: auto;
+        grid-column: auto;
+    }
+    .down {
+        position: absolute;
+        top: 10px;
+        left: 83vw;
+        grid-row: auto;
+        grid-column: auto;
+    }
+    #upwards,
+    #downwards {
+        font-size: 2rem;
+    }
+
     /* HIDE SCROLLBAR  */
     *::-webkit-scrollbar {
         visibility: hidden;
