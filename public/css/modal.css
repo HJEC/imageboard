@@ -46,7 +46,7 @@
 
 .modal_h1 {
     margin: 10px 15px;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 .modal_h2 {
@@ -57,8 +57,12 @@
 }
 .modal_description {
     font-size: 1rem;
-    margin: 15px 15px 5px 15px;
-    height: 60px;
+    margin: 15px 15px 0px 15px;
+    width: 90%;
+    height: 70px;
+    max-height: 80px;
+    overflow-y: scroll;
+    overflow: hidden;
 }
 #modal_image {
     width: 300px;

@@ -33,19 +33,12 @@
 
     /* MODAL */
     .popup {
-        position: fixed;
         min-width: 550px;
         max-width: 750px;
         top: 5vh;
         left: 5vw;
         bottom: 5vh;
         right: 5vw;
-        border-radius: 8px;
-        border-bottom-right-radius: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 80px;
-        z-index: 100;
     }
     .modal_h1,
     .modal_h2 {
@@ -75,7 +68,8 @@
         width: ;
     }
     .comment_scroll {
-        height: 200px;
+        height: auto;
+        max-height: 300px;
         width: 80%;
     }
     .comment_scroll p {
@@ -159,7 +153,6 @@
         flex-direction: column;
     }
     header {
-        width: 80%;
     }
     .main_form {
         width: 400px;
@@ -168,15 +161,14 @@
 
 /* MEDIUM PHONE  */
 @media screen and (max-width: 430px) and (orientation: portrait) {
-    header {
+    header h2 {
+        align-self: center;
     }
     .main_form {
         display: block;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
         width: 300px;
-        max-height: 300px;
+        height: 300px;
+        max-height: 350px;
         margin: 20px auto;
     }
     .main_form input {
@@ -184,5 +176,26 @@
     }
     .main_form label {
         margin: 10px 20px;
+        padding: 5px;
+    }
+    select {
+        margin: 40px auto;
+    }
+    .flex_row {
+        flex-wrap: nowrap;
+    }
+    /* MODAL  */
+    .popup {
+        min-width: 100%;
+        min-height: 100%;
+
+        top: 1vh;
+        left: 1vw;
+        bottom: 1vh;
+        right: 2vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 80px;
+        z-index: 100;
     }
 }
