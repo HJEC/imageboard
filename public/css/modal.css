@@ -8,11 +8,10 @@
 }
 .popup {
     position: fixed;
-    min-width: 750px;
-    top: 5vh;
-    left: 21vw;
-    bottom: 10vh;
-    right: 36vw;
+    max-width: 750px;
+    max-height: 700px;
+    top: 15vh;
+    left: 30%;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
     background-color: var(--primary-color);
@@ -155,7 +154,7 @@ textarea:focus {
 /* MOVE BUTTONS  */
 
 .move {
-    position: fixed;
+    position: absolute;
     width: 160px;
     height: auto;
     margin: 0px 10px;
@@ -164,10 +163,10 @@ textarea:focus {
 }
 
 .left {
-    left: 7vw;
+    left: -15vw;
 }
 .right {
-    right: 10vw;
+    right: -15vw;
 }
 .go {
     width: 150px;

@@ -1,5 +1,10 @@
 /* SNAPPED BROWSER  */
-@media screen and (max-width: 780px) {
+@media screen and (min-device-width: 1550px) {
+    .image_box {
+        margin: 20px 40px;
+    }
+}
+@media screen and (max-width: 960px) {
     /* MAIN */
     * {
         font-size: 18px;
@@ -22,13 +27,20 @@
         margin: 20px auto;
         line-height: 40px;
     }
+    header h2 {
+        align-self: center;
+        margin: 20px auto;
+    }
     .main_form {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        width: 500px;
+        width: 400px;
         margin: 20px 40px;
-        height: 120px;
+        height: 300px;
+    }
+    input[name="username"] {
+        margin-left: 20px;
     }
 
     /* MODAL */
@@ -36,7 +48,7 @@
         min-width: 550px;
         max-width: 750px;
         top: 5vh;
-        left: 5vw;
+        left: 10vw;
         bottom: 5vh;
         right: 5vw;
     }
@@ -79,8 +91,6 @@
     /* TOP RIGHT CORNER  */
 
     .close {
-        position: absolute;
-        cursor: pointer;
         top: 4%;
         right: 4%;
         font-size: 2em;
@@ -88,7 +98,7 @@
 
     #comment_submit {
         position: absolute;
-        top: 20%;
+        top: 15%;
         right: 2%;
         font-size: 0.7rem;
     }
@@ -161,6 +171,11 @@
 
 /* MEDIUM PHONE  */
 @media screen and (max-width: 430px) and (orientation: portrait) {
+    .close {
+        top: 2vh;
+        left: 49vw;
+        font-size: 1.6rem;
+    }
     header h2 {
         align-self: center;
     }
@@ -184,22 +199,75 @@
     .flex_row {
         flex-wrap: nowrap;
     }
+    .button {
+        margin: 20px auto;
+    }
     /* MODAL  */
     .popup {
-        min-width: 100%;
         min-height: 100%;
+        width: 100%;
+        height: 100%;
         top: 0;
         left: 0;
         border: none;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 30px 30px 30px 1fr;
+        grid-template-rows: 1fr 1fr;
         z-index: 100;
+        overflow-y: scroll;
     }
     .modal_data {
-        grid-row: auto;
+        grid-row: 1/2;
+        grid-column: 1 / 1;
+        display: grid;
+        grid-row: 1fr 1fr 1fr 1fr;
     }
     #modal_image {
         grid-row: 1 / 2;
+        margin: 8vh 10px 20px 10px;
+        height: 250px;
+        width: 94vw;
+    }
+    .modal_h1 {
+        grid-row: 2/3;
+    }
+    .modal_h2 {
+        grid-row: 3/4;
+    }
+    .modal_description {
+        grid-row: 4/5;
+        height: 60px;
+        width: 80vw;
+    }
+    .comments_box {
+        grid-row: 2/3;
+        grid-column: 1/1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .comments_box form {
+        /* margin: auto; */
+        width: 60%;
+    }
+    #comment_submit {
+        position: static;
+        margin: 15px 40%;
+    }
+    .comment_scroll {
+        margin: 10px auto;
+        max-height: fit-content;
+    }
+
+    .shift {
+        visibility: hidden;
+    }
+    /* HIDE SCROLLBAR  */
+    *::-webkit-scrollbar {
+        visibility: hidden;
+        width: 0;
+    }
+    *::-webkit-scrollbar-thumb {
+        visibility: hidden;
     }
 }
