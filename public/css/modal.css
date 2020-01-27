@@ -10,8 +10,8 @@
     position: fixed;
     max-width: 750px;
     max-height: 700px;
-    top: 15vh;
-    left: 30%;
+    top: 5vh;
+    left: 25%;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
     background-color: var(--primary-color);
