@@ -41,6 +41,10 @@ exports.importImages = function(url, title, description, username) {
     );
 };
 
+exports.deleteImage = id => {
+    return db.query(`DELETE FROM images WHERE id = ${id}`);
+};
+
 exports.getClickedImage = function(id) {
     return db
         .query(

@@ -49,23 +49,25 @@
                         });
                 }
             },
-            showModal: function() {
+            showModal: function(id) {
                 var self = this;
                 this.comments = [];
                 this.$emit("fixed");
-                axios.get("/selected/" + self.imageId).then(function(res) {
-                    if (res.data == "") {
-                        return self.closeModal();
-                    }
-                    self.image = res.data.url;
-                    self.title = res.data.title;
-                    self.description = res.data.description;
-                    self.username = res.data.username;
-                    self.leftId = res.data.left_id;
-                    self.rightId = res.data.right_id;
-                    self.leftImage = res.data.left_url;
-                    self.rightImage = res.data.right_url;
-                });
+                axios
+                    .get("/selected/" + (id || self.imageId))
+                    .then(function(res) {
+                        if (res.data == "") {
+                            return self.closeModal();
+                        }
+                        self.image = res.data.url;
+                        self.title = res.data.title;
+                        self.description = res.data.description;
+                        self.username = res.data.username;
+                        self.leftId = res.data.left_id;
+                        self.rightId = res.data.right_id;
+                        self.leftImage = res.data.left_url;
+                        self.rightImage = res.data.right_url;
+                    });
                 axios.get(`/comments/${self.imageId}`).then(function(res) {
                     for (var i in res.data) {
                         self.comments.push(res.data[i]);
@@ -74,7 +76,15 @@
             },
             slide: function() {},
             delete_image: function() {
-                console.log("image to delete", this.imageId);
+                let self = this;
+                axios.post("/delete", { id: self.imageId }).then(function() {
+                    self.$emit("deleted");
+                    if (self.leftId) {
+                        self.showModal(self.leftId);
+                    } else {
+                        self.showModal(self.rightId);
+                    }
+                });
             }
         }
     });
@@ -153,14 +163,12 @@
                 this.file = null;
             },
             handleChange: function(e) {
-                console.log("handlechange is running");
                 console.log("file:", e.target.files[0]);
                 this.file = e.target.files[0];
             },
             closeMe: function() {
                 this.imageSelected = null;
                 this.fixed = null;
-                // location.hash = "";
                 history.replaceState(null, null, " ");
             },
             moreImages: function() {
@@ -233,6 +241,9 @@
             },
             setFixed: function() {
                 this.fixed = "fixed";
+            },
+            updateOnDelete: function() {
+                this.images.shift();
             }
         }
     });

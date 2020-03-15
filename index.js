@@ -4,6 +4,7 @@ const express = require("express"),
         getImages,
         getMoreImages,
         importImages,
+        deleteImage,
         getClickedImage,
         addComment,
         getComments,
@@ -75,6 +76,11 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
 });
 
 // TODO: DELETE IMAGES
+app.post("/delete", async (req, res) => {
+    let id = req.body.id;
+    await deleteImage(id);
+    res.json({ success: true });
+});
 
 // SELECTED IMAGE ROUTE
 app.get("/selected/:id", (req, res) => {
