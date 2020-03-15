@@ -11,7 +11,7 @@
     max-width: 750px;
     max-height: 700px;
     top: 5vh;
-    left: 25%;
+    left: 30%;
     border-radius: 8px;
     border-bottom-right-radius: 20px;
     background-color: var(--primary-color);
@@ -72,6 +72,12 @@
     padding: 2px;
     object-fit: cover;
     cursor: auto;
+}
+
+.delete {
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
 }
 
 /* TOP RIGHT CORNER  */

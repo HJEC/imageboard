@@ -98,15 +98,17 @@
                     </section>
                 </div>
 
-                <a class="left move" :href="'#' + leftId" v-if="leftId">
+                <a class="left move" :href="'#' + leftId" v-if="leftId" v-on:mousedown="slide">
                     <div class="go" id="left"> < go left</div>
                     <img :src="leftImage" class="move_image left_image">
                 </a>
-                <a class="right move" :href="'#' + rightId" v-if="rightId">
+                <a class="right move" :href="'#' + rightId" v-if="rightId" v-on:mousedown="slide">
                     <div class="go" id="right">go right ></div>
                     <img :src="rightImage" class="move_image right_image">
                 </a>
-                
+
+                <button class="button" type="button" @click="delete_image">delete image</button>
+
                 <a class="up shift" :href="'#' + leftId" v-if="leftId">
                     <i class="fas fa-long-arrow-alt-up" id="upwards"></i></a>
                 <a class="down shift" :href="'#' + rightId" v-if="rightId">

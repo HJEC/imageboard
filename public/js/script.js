@@ -71,6 +71,10 @@
                         self.comments.push(res.data[i]);
                     }
                 });
+            },
+            slide: function() {},
+            delete_image: function() {
+                console.log("image to delete", this.imageId);
             }
         }
     });
@@ -222,7 +226,7 @@
                         disco.pause();
                     }
                     if (filter == "animated") {
-                        disco.src = "/stuff/room5.mp3";
+                        disco.src = "/stuff/room5_PartyLad_edit.mp3";
                         disco.play();
                     }
                 };
