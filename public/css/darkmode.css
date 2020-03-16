@@ -6,6 +6,7 @@
     --font-color: black;
     --font-other: white;
     --border-color: black;
+    --modal-shadow: rgba(255, 218, 187, 0.5);
     --bg-color: #fff;
     --input-focus: rgba(10, 10, 10, 0.2);
     --input-placeholder: grey;
@@ -21,6 +22,7 @@
     --font-color: peachpuff;
     --font-other: black;
     --border-color: peachpuff;
+    --modal-shadow: rgba(129, 140, 171, 0.5);
     --bg-color: #333333;
     --input-focus: rgba(255, 255, 255, 0);
     --input-placeholder: #fff;

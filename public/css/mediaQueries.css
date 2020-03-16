@@ -45,7 +45,7 @@
 
     /* MODAL */
     .popup {
-        min-width: 550px;
+        min-width: 700px;
         max-width: 750px;
         top: 5vh;
         left: 10vw;
@@ -70,14 +70,11 @@
         margin-right: 100px;
     }
 
-    .comments_box input,
-    textarea {
-        width: ;
-    }
     .comment_scroll {
         height: auto;
         max-height: 300px;
         width: 80%;
+        margin-top: 30px;
     }
     .comment_scroll p {
         font-size: 0.7rem;
@@ -95,7 +92,6 @@
         position: absolute;
         top: 15%;
         right: 2%;
-        font-size: 0.7rem;
     }
 
     /* NAVIGATION  */
@@ -254,12 +250,22 @@
         width: 250px;
     }
     #comment_submit {
+        height: 35px;
+        width: 80px;
+        margin: 20px auto;
         position: static;
-        margin: 15px 40%;
+        font-size: 0.8rem;
     }
     .comment_scroll {
         margin: 10px auto;
         max-height: fit-content;
+    }
+
+    .delete {
+        height: 40px;
+        width: 125px;
+        font-size: 0.8rem;
+        margin: 20px auto;
     }
 
     /* NAVIGATION */

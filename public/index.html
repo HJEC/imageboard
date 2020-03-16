@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/modal.css">
     <link rel="stylesheet" href="/css/mainImages.css">
     <link rel="stylesheet" href="/css/filters.css">
-    <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous" sameSite="none"></script>
     <link rel="stylesheet" href="/css/mediaQueries.css">
 </head>
 
@@ -43,7 +43,6 @@
                 <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
                 <label for="file">select file 📁</label>
                 <i @click="upload"  class="fas upload fa-arrow-circle-up"></i>
-                <!-- <button  @click="upload" class="upload">submit</button> -->
                 <select name="filterSelect">
                 <option value="null">Select Filter</option>
                 <option value="monochrome">monochrome</option>
@@ -82,7 +81,7 @@
                     <h2 class="modal_description">description: {{description}}</h2>
                     <img :src="image" id="modal_image">
                     <i @click="closeModal" class="fas close fa-times"></i>
-                    <!-- <div class="close" @click="closeModal"> X</div> -->
+                    <button class="delete" type="button" @click="delete_image">delete image</button>
                 </div>
 
                 <div class="comments_box">
@@ -108,7 +107,6 @@
                     <img :src="rightImage" class="move_image right_image">
                 </a>
 
-                <button class="button" type="button" @click="delete_image">delete image</button>
 
                 <a class="up shift" :href="'#' + leftId" v-if="leftId">
                     <i class="fas fa-long-arrow-alt-up" id="upwards"></i></a>

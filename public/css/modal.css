@@ -13,10 +13,9 @@
     top: 5vh;
     left: 30%;
     border-radius: 8px;
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 15px;
     background-color: var(--primary-color);
-    border-bottom: solid 3px var(--beta-color);
-    border-right: solid 4px var(--beta-color);
+    box-shadow: 8px 8px 0px 1px var(--modal-shadow);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 80px;
@@ -75,9 +74,13 @@
 }
 
 .delete {
+    color: black;
+    margin: 20px 25%;
+    height: 50px;
     width: 150px;
-    height: 40px;
-    border-radius: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-weight: bold;
 }
 
 /* TOP RIGHT CORNER  */
@@ -93,6 +96,12 @@
 .close:hover {
     transform: scale(1.4);
     color: #818cab;
+}
+
+.comments_box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #comment_submit {
