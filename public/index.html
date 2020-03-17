@@ -71,9 +71,9 @@
 
     <script type="text/x-template" id="template">
 
-        <div class="component">
+        <div class="component" >
             <div class="overlay" @click="closeModal"></div>
-            <div class="popup">
+            <div class="popup" ref="modal" @touchstart="startClick" @touchmove="swipe">
 
                 <div class="modal_data">
                     <h1 class="modal_h1">{{title}}</h1>
@@ -98,11 +98,11 @@
                     </section>
                 </div>
 
-                <a class="left move" :href="'#' + leftId" v-if="leftId" v-on:mousedown="slide">
+                <a class="left move" :href="'#' + leftId" v-if="leftId">
                     <div class="go" id="left"> < go left</div>
                     <img :src="leftImage" class="move_image left_image">
                 </a>
-                <a class="right move" :href="'#' + rightId" v-if="rightId" v-on:mousedown="slide">
+                <a class="right move" :href="'#' + rightId" v-if="rightId">
                     <div class="go" id="right">go right ></div>
                     <img :src="rightImage" class="move_image right_image">
                 </a>

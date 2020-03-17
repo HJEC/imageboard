@@ -295,6 +295,7 @@
         grid-row: auto;
         grid-column: auto;
     }
+
     #upwards,
     #downwards {
         font-size: 2rem;

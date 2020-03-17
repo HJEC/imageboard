@@ -50,7 +50,6 @@ app.get("/images", (req, res) => {
 
 app.get("/images/:lastId", (req, res) => {
     getMoreImages(req.params.lastId).then(response => {
-        // console.log("GMI response: ", response[0]);
         res.json(response);
     });
 });

@@ -48,7 +48,12 @@ exports.deleteImage = id => {
 exports.getClickedImage = function(id) {
     return db
         .query(
-            `SELECT url, username, title, description, id, (SELECT id FROM images WHERE id > $1 LIMIT 1) AS left_id, (SELECT url FROM images WHERE id > $1 LIMIT 1) AS left_url, (SELECT id FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_id, (SELECT url FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_url FROM images WHERE id = $1`,
+            `SELECT url, username, title, description, id,
+            (SELECT id FROM images WHERE id > $1 LIMIT 1) AS left_id,
+            (SELECT url FROM images WHERE id > $1 LIMIT 1) AS left_url,
+            (SELECT id FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_id,
+            (SELECT url FROM images WHERE id < $1 ORDER BY id DESC LIMIT 1) AS right_url
+             FROM images WHERE id = $1`,
             [id]
         )
         .then(({ rows }) => rows);

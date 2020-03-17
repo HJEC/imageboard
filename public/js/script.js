@@ -14,11 +14,14 @@
                 leftId: null,
                 rightId: null,
                 leftImage: null,
-                rightImage: null
+                rightImage: null,
+                swiping: false,
+                x: false
             };
         },
         mounted: function() {
             this.showModal();
+            window.addEventListener("mouseup", this.stopSwipe);
         },
         watch: {
             imageId: function() {
@@ -72,7 +75,34 @@
                     }
                 });
             },
-            slide: function() {},
+            startClick: function(e) {
+                this.swiping = true;
+                this.x = e.touches[0].clientX;
+            },
+            swipe: function(e) {
+                let modal = this.$refs.modal,
+                    offsetX = modal.offsetWidth,
+                    swipeX = e.touches[0].clientX;
+                if (this.swiping) {
+                    modal.style.left = swipeX - offsetX / 2 + "px";
+                    if (this.x + 250 < swipeX) {
+                        if (this.rightId) {
+                            this.stopSwipe(this.rightId);
+                        }
+                    }
+                    if (swipeX < this.x - 250) {
+                        if (this.leftId) {
+                            this.stopSwipe(this.leftId);
+                        }
+                    }
+                }
+            },
+            stopSwipe: function(id) {
+                location.assign(`/#${id}`);
+                this.swiping = false;
+                this.x = false;
+                this.$refs.modal.style.left = "0px";
+            },
             delete_image: function() {
                 let self = this;
                 axios.post("/delete", { id: self.imageId }).then(function() {
