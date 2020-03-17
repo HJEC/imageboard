@@ -1,6 +1,6 @@
 (function() {
     Vue.component("popup", {
-        template: "#template",
+        template: "#modal_window",
         props: ["imageId"],
         data: function() {
             return {
@@ -16,12 +16,16 @@
                 leftImage: null,
                 rightImage: null,
                 swiping: false,
+                swipeArr: [],
                 x: false
             };
         },
         mounted: function() {
             this.showModal();
-            window.addEventListener("mouseup", this.stopSwipe);
+            window.addEventListener("touchend", this.stopSwipe);
+        },
+        beforeDestroy: function() {
+            window.removeEventListener("touchend", this.stopSwipe);
         },
         watch: {
             imageId: function() {
@@ -83,23 +87,34 @@
                 let modal = this.$refs.modal,
                     offsetX = modal.offsetWidth,
                     swipeX = e.touches[0].clientX;
+
                 if (this.swiping) {
                     modal.style.left = swipeX - offsetX / 2 + "px";
-                    if (this.x + 250 < swipeX) {
-                        if (this.rightId) {
-                            this.stopSwipe(this.rightId);
-                        }
+                    this.swipeArr.push(swipeX);
+
+                    // If mouse position has moved left, then show older image on the right
+                    if (!this.leftId && this.swipeArr[50] > this.x) {
+                        modal.style.left = 0 + "px";
                     }
-                    if (swipeX < this.x - 250) {
-                        if (this.leftId) {
-                            this.stopSwipe(this.leftId);
-                        }
+                    if (!this.rightId && this.swipeArr[50] < this.x) {
+                        console.log("now");
+                        modal.style.left = 0 + "px";
+                    }
+                    if (swipeX < this.x - 250 && this.rightId) {
+                        this.stopSwipe(this.rightId);
+                    }
+                    // If mouse position has moved right, then show newer image on the left
+                    if (this.x + 250 < swipeX && this.leftId) {
+                        this.stopSwipe(this.leftId);
                     }
                 }
             },
             stopSwipe: function(id) {
-                location.assign(`/#${id}`);
+                if (typeof id === "number") {
+                    location.assign(`/#${id}`);
+                }
                 this.swiping = false;
+                this.swipeArr = [];
                 this.x = false;
                 this.$refs.modal.style.left = "0px";
             },
