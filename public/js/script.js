@@ -89,10 +89,10 @@
                     swipeX = e.touches[0].clientX;
 
                 if (this.swiping) {
-                    modal.style.left = swipeX - offsetX / 2 + "px";
+                    console.log("offset:", swipeX - this.x);
+                    modal.style.left = swipeX - this.x + "px";
                     this.swipeArr.push(swipeX);
 
-                    // If mouse position has moved left, then show older image on the right
                     if (!this.leftId && this.swipeArr[50] > this.x) {
                         modal.style.left = 0 + "px";
                     }
