@@ -101,50 +101,7 @@
     .move_image {
         visibility: hidden;
     }
-    .shift {
-        visibility: visible;
-        width: 60px;
-        height: 60px;
-        background: var(--beta-color);
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.2s;
-    }
-    .up {
-        margin: 0 auto auto 50px;
-        grid-column: 1/2;
-        grid-row: 2/3;
-    }
 
-    .up:hover {
-        background-color: var(--input-placeholder);
-        transform: translateY(-10px);
-    }
-    .up:active {
-        background-color: var(--input-placeholder);
-        transform: translateY(-10px);
-    }
-    #upwards,
-    #downwards {
-        font-size: 2.5rem;
-    }
-    .down {
-        margin: auto 50px 20px auto;
-        grid-column: 2/3;
-        grid-row: 2/3;
-    }
-
-    .down:hover {
-        background-color: var(--input-placeholder);
-        transform: translateY(10px);
-    }
-    .down:active {
-        transform: translateY(10px);
-        background-color: var(--input-placeholder);
-    }
-}
 
 @media screen and (max-width: 800px) {
     #modal_image {
@@ -199,11 +156,6 @@ input[name="username"] {
         margin: 20px auto;
     }
     /* MODAL  */
-    .component {
-    }
-    .overlay {
-        /* visibility: hidden; */
-    }
     .popup {
         width: 100%;
         min-width: 300px;
@@ -282,32 +234,6 @@ input[name="username"] {
         font-size: 1.8rem;
         width: 20px;
     }
-    .shift {
-        visibility: visible;
-        margin: 0;
-        width: 45px;
-        height: 45px;
-    }
-    .up {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        grid-row: auto;
-        grid-column: auto;
-    }
-    .down {
-        position: absolute;
-        top: 10px;
-        left: 83vw;
-        grid-row: auto;
-        grid-column: auto;
-    }
-
-    #upwards,
-    #downwards {
-        font-size: 2rem;
-    }
-
     /* HIDE SCROLLBAR  */
     *::-webkit-scrollbar {
         visibility: hidden;

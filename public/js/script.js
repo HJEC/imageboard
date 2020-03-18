@@ -23,9 +23,11 @@
         mounted: function() {
             this.showModal();
             window.addEventListener("touchend", this.stopSwipe);
+            window.addEventListener("keydown", this.keyAction);
         },
         beforeDestroy: function() {
             window.removeEventListener("touchend", this.stopSwipe);
+            window.removeEventListener("keydown", this.keyAction);
         },
         watch: {
             imageId: function() {
@@ -79,6 +81,19 @@
                     }
                 });
             },
+            keyAction: function(event) {
+                let key = event.keyCode;
+                console.log("key: ", key);
+                if (key == 37 && this.leftId) {
+                    location.assign(`/#${this.leftId}`);
+                }
+                if (key == 39 && this.rightId) {
+                    location.assign(`/#${this.rightId}`);
+                }
+                if (key == 27) {
+                    this.closeModal();
+                }
+            },
             startClick: function(e) {
                 this.swiping = true;
                 this.x = e.touches[0].clientX;
@@ -86,9 +101,7 @@
             swipe: function(e) {
                 let modal = this.$refs.modal,
                     swipeX = e.touches[0].clientX;
-
                 if (this.swiping) {
-                    console.log("offset:", modal.style.left);
                     modal.style.left = swipeX - this.x + "px";
                     this.swipeArr.push(swipeX);
 
@@ -96,7 +109,6 @@
                         modal.style.left = 0 + "px";
                     }
                     if (!this.rightId && this.swipeArr[50] < this.x) {
-                        console.log("now");
                         modal.style.left = 0 + "px";
                     }
                     if (swipeX < this.x - 250 && this.rightId) {

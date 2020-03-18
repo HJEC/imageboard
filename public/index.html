@@ -73,13 +73,13 @@
 
         <div class="component" >
             <div class="overlay" @click="closeModal"></div>
-            <div class="popup" ref="modal" >
+            <div class="popup" ref="modal" @touchstart="startClick" @touchmove="swipe">
 
                 <div class="modal_data">
                     <h1 class="modal_h1">{{title}}</h1>
                     <h2 class="modal_h2">user: {{username}}</h2>
                     <h2 class="modal_description">description: {{description}}</h2>
-                    <img :src="image" id="modal_image" @touchstart="startClick" @touchmove="swipe">
+                    <img :src="image" id="modal_image" >
                     <i @click="closeModal" class="fas close fa-times"></i>
                     <button class="delete" type="button" @click="delete_image">delete image</button>
                 </div>
@@ -108,10 +108,7 @@
                 </a>
 
 
-                <a class="up shift" :href="'#' + leftId" v-if="leftId">
-                    <i class="fas fa-long-arrow-alt-up" id="upwards"></i></a>
-                <a class="down shift" :href="'#' + rightId" v-if="rightId">
-                    <i class="fas fa-long-arrow-alt-down" id="downwards"></i></a>
+
 
             </div>
         </div>
