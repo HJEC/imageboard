@@ -85,11 +85,10 @@
             },
             swipe: function(e) {
                 let modal = this.$refs.modal,
-                    offsetX = modal.offsetWidth,
                     swipeX = e.touches[0].clientX;
 
                 if (this.swiping) {
-                    console.log("offset:", swipeX - this.x);
+                    console.log("offset:", modal.style.left);
                     modal.style.left = swipeX - this.x + "px";
                     this.swipeArr.push(swipeX);
 
