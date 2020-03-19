@@ -103,7 +103,9 @@ if (currentTheme) {
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/mediaqueries.gif#gif"/></p>
+<!-- <p align="center"><img src="/public/stuff/gifs/mediaqueries.gif#gif"/></p> -->
+
+![media queries](/public/stuff/gifs/mediaqueries.gif# gif)
 
 One of the challenges I set for myself was designing for various breakpoints and especially mobile. Writing stylesheets with multiple media-queries can quickly build in complexity and get quite messy, but it was a fun exercise in organisation and really building a deeper understanding of css grids and flex layouts. Everything on this site was built with vanilla css. No libraries or pre-processors were involved.
 
