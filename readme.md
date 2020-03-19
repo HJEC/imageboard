@@ -110,7 +110,7 @@ One of the challenges I set for myself was designing for various breakpoints and
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/swipe.gif" style="border-radius: 20px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/swipe.gif" style="border-radius: 20px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" height="80%"/></p>
 
 Another simple but important feature I was excited to implement was mobile touch events and detecting screen-swiping. Playing with coordinates and event handling was definitely challenging at first, but I am quite happy with the outcome for my first attempt.
 
