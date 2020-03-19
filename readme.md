@@ -8,6 +8,8 @@
 
 #### Author: [Henry Crookes](http:/github.com/hjec) :cowboy_hat_face:
 
+> “If there are no dogs in Heaven, then when I die I want to go where they went.” ― Will Rogers
+
 ##### contents:
 
 1. [Description](#Description)
