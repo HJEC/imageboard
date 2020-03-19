@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./rdme.css" />
 <p align="center"><img  width="100"src="/public/stuff/dog_logo.png"/></p>
 
 <h1 align="center"> Imageboard</h1>
@@ -102,7 +103,7 @@ if (currentTheme) {
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/mediaqueries.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/mediaqueries.gif#gif"/></p>
 
 One of the challenges I set for myself was designing for various breakpoints and especially mobile. Writing stylesheets with multiple media-queries can quickly build in complexity and get quite messy, but it was a fun exercise in organisation and really building a deeper understanding of css grids and flex layouts. Everything on this site was built with vanilla css. No libraries or pre-processors were involved.
 
@@ -110,7 +111,7 @@ One of the challenges I set for myself was designing for various breakpoints and
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/swipe.gif" style="border-radius: 20px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" height="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/swipe.gif" style="border-radius: 20px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" height="50%"/></p>
 
 Another simple but important feature I was excited to implement was mobile touch events and detecting screen-swiping. Playing with coordinates and event handling was definitely challenging at first, but I am quite happy with the outcome for my first attempt.
 
