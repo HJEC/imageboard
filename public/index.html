@@ -76,11 +76,11 @@
             <div class="popup" ref="modal" @touchstart="startClick" @touchmove="swipe">
 
                 <div class="modal_data">
+                    <i @click="closeModal" class="fas close fa-times"></i>
                     <h1 class="modal_h1">{{title}}</h1>
                     <h2 class="modal_h2">user: {{username}}</h2>
                     <h2 class="modal_description">description: {{description}}</h2>
                     <img :src="image" id="modal_image" >
-                    <i @click="closeModal" class="fas close fa-times"></i>
                     <button class="delete" type="button" @click="delete_image">delete image</button>
                 </div>
 
@@ -98,6 +98,7 @@
                     </section>
                 </div>
 
+                <p class="swipe_msg">swipe left or right to see more!</p>
                 <a class="left move" :href="'#' + leftId" v-if="leftId">
                     <div class="go" id="left"> < go left</div>
                     <img :src="leftImage" class="move_image left_image">

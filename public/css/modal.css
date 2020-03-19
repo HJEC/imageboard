@@ -227,9 +227,6 @@ textarea:focus {
     border-radius: 10px;
 }
 
-.shift {
-    visibility: hidden;
-}
 /* SCROLLBAR  */
 
 *::-webkit-scrollbar {

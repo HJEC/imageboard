@@ -81,9 +81,8 @@
                     }
                 });
             },
-            keyAction: function(event) {
-                let key = event.keyCode;
-                console.log("key: ", key);
+            keyAction: function(e) {
+                let key = e.keyCode;
                 if (key == 37 && this.leftId) {
                     location.assign(`/#${this.leftId}`);
                 }

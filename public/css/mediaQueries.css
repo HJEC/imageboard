@@ -3,6 +3,9 @@
     .image_box {
         margin: 20px 40px;
     }
+    .swipe_msg {
+        visibility: hidden;
+    }
 }
 @media screen and (max-width: 960px) {
     /* MAIN */
@@ -61,7 +64,6 @@
     textarea {
         font-size: 0.8rem;
     }
-    /* LEFT SIDE  */
 
     /* RIGHT SIDE  */
 
@@ -101,8 +103,7 @@
     .move_image {
         visibility: hidden;
     }
-
-
+}
 @media screen and (max-width: 800px) {
     #modal_image {
         width: 225px;
@@ -159,8 +160,6 @@ input[name="username"] {
     .popup {
         width: 100%;
         min-width: 300px;
-        max-width: 399px;
-        height: 100%;
         min-height: 100%;
         top: 0;
         left: 0;
@@ -230,8 +229,8 @@ input[name="username"] {
     /* NAVIGATION */
     .close {
         top: 4vh;
-        left: 50vw;
-        font-size: 1.8rem;
+        left: 48%;
+        font-size: 2rem;
         width: 20px;
     }
     /* HIDE SCROLLBAR  */
