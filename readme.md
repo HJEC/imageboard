@@ -1,10 +1,9 @@
-<link rel="stylesheet" href="./rdme.css" />
 <p align="center"><img  width="100"src="/public/stuff/dog_logo.png"/></p>
 
 <h1 align="center"> Imageboard</h1>
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/overview.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);"/></p>
+<p align="center"><img src="/public/stuff/gifs/overview.gif"/></p>
 <h3 align="center">overview demo</h3>
 
 #### Author: [Henry Crookes](http:/github.com/hjec) :cowboy_hat_face:
@@ -48,14 +47,14 @@ This project was my first experience using a popular Javascript framework. I lea
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/upload.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/upload.gif" width="80%"/></p>
 
 Utilising Amazon Web services for file hosting, users can upload images with a maximum file size of 2.5mb's to the s3 bucket linked to this project, and then the site views are automatically updated to display the new image. All images are ordered from newest to oldest.
 
 #### 2. Image deletion <a name="2"></a>
 
 <br>
-<p align="center"><img src="/public/stuff/gifs/deleted.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/deleted.gif" width="80%"/></p>
 
 Users can delete an image from the database, along with it's comments. The modal window will then display the next most recent image, or oldest if there are no newer images.
 
@@ -63,7 +62,7 @@ Users can delete an image from the database, along with it's comments. The modal
 
 <br>
 
-<p align="center"><img src="/public/stuff/gifs/comment.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
+<p align="center"><img src="/public/stuff/gifs/comment.gif" width="80%"/></p>
 
 After selecting an image, a modal window will appear where users can leave a comment. If a user does not specify a username, the entry will be uploaded under "Anon".
 
@@ -103,9 +102,7 @@ if (currentTheme) {
 
 <br>
 
-<!-- <p align="center"><img src="/public/stuff/gifs/mediaqueries.gif#gif"/></p> -->
-
-![media queries](/public/stuff/gifs/mediaqueries.gif# gif)
+<p align="center"><img src="/public/stuff/gifs/mediaqueries.gif" width="80%"/></p>
 
 One of the challenges I set for myself was designing for various breakpoints and especially mobile. Writing stylesheets with multiple media-queries can quickly build in complexity and get quite messy, but it was a fun exercise in organisation and really building a deeper understanding of css grids and flex layouts. Everything on this site was built with vanilla css. No libraries or pre-processors were involved.
 
