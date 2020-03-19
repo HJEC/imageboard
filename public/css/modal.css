@@ -226,7 +226,12 @@ textarea:focus {
     border-bottom: var(--beta-color) solid 3px;
     border-radius: 10px;
 }
-
+.swipe_msg {
+    visibility: hidden;
+}
+.shift {
+    visibility: hidden;
+}
 /* SCROLLBAR  */
 
 *::-webkit-scrollbar {

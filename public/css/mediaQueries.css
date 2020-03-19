@@ -3,17 +3,11 @@
     .image_box {
         margin: 20px 40px;
     }
-    .swipe_msg {
-        visibility: hidden;
-    }
 }
 @media screen and (max-width: 960px) {
     /* MAIN */
     * {
         font-size: 18px;
-    }
-    body {
-        max-width: 100vw;
     }
     header {
         display: flex;
@@ -103,7 +97,51 @@
     .move_image {
         visibility: hidden;
     }
+    .shift {
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+        background: var(--beta-color);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+    .up {
+        margin: 0 auto auto 50px;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .up:hover {
+        background-color: var(--input-placeholder);
+        transform: translateX(-10px);
+    }
+    .up:active {
+        background-color: var(--input-placeholder);
+        transform: translateX(-10px);
+    }
+    #upwards,
+    #downwards {
+        font-size: 2.5rem;
+    }
+    .down {
+        margin: auto 50px 20px auto;
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .down:hover {
+        background-color: var(--input-placeholder);
+        transform: translateX(10px);
+    }
+    .down:active {
+        transform: translateX(10px);
+        background-color: var(--input-placeholder);
+    }
 }
+
 @media screen and (max-width: 800px) {
     #modal_image {
         width: 225px;
@@ -122,11 +160,14 @@
     .main_form {
         width: 400px;
     }
-}
-input[name="username"] {
-    margin-left: 10px;
-}
 
+    input[name="username"] {
+        margin-left: 10px;
+    }
+    .shift {
+        visibility: hidden;
+    }
+}
 /* MEDIUM PHONE  */
 @media screen and (max-width: 430px) and (orientation: portrait) {
     header h2 {
@@ -232,6 +273,15 @@ input[name="username"] {
         left: 48%;
         font-size: 2rem;
         width: 20px;
+    }
+
+    .swipe_msg {
+        visibility: visible;
+        position: absolute;
+        font-size: 0.9rem;
+        font-weight: bold;
+        top: 90px;
+        left: 25%;
     }
     /* HIDE SCROLLBAR  */
     *::-webkit-scrollbar {
