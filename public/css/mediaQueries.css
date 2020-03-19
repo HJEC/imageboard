@@ -143,6 +143,9 @@
 }
 
 @media screen and (max-width: 800px) {
+    .popup {
+        min-width: 650px;
+    }
     #modal_image {
         width: 225px;
         height: 225px;
@@ -280,8 +283,8 @@
         position: absolute;
         font-size: 0.9rem;
         font-weight: bold;
-        top: 90px;
-        left: 25%;
+        top: 10vh;
+        left: 20%;
     }
     /* HIDE SCROLLBAR  */
     *::-webkit-scrollbar {
