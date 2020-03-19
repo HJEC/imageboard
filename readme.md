@@ -4,11 +4,10 @@
 <br>
 
 <p align="center"><img src="/public/stuff/gifs/overview.gif"/></p>
-<h3 align="center">overview demo</h3>
-
-#### Author: [Henry Crookes](http:/github.com/hjec) :cowboy_hat_face:
 
 > “If there are no dogs in Heaven, then when I die I want to go where they went.” ― Will Rogers
+
+#### Author: [Henry Crookes](http:/github.com/hjec) :cowboy_hat_face:
 
 ##### contents:
 
