@@ -31,7 +31,7 @@ This imageboard is a simple page to upload your favourite photos of dogs (prefer
 
 ### Insights:
 
-This project was my first experience using a popular Javascript framework. I learned a tonne of valuable lessons from Vue, and really enjoyed the having access to the freedom and potential it offered.
+This project was my first experience using a popular Javascript framework. I learned a tonne of valuable lessons from Vue, and really enjoyed having the access to the freedom and potential it offered. Vue is a great lightweight framework with and I appreciate most of all how easy it is to integrate into any project.
 
 ### Technologies
 
