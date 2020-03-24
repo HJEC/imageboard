@@ -14,7 +14,8 @@
 1. [Description](#Description)
 2. [Insights](#Insights)
 3. [Technologies](#Technologies)
-4. [Features](#Features)
+4. [Design Packages](#Design)
+5. [Features](#Features)
    <br>[- File upload](#1)
    <br>[- Image deletion](#2)
    <br>[- Comments](#3)
@@ -37,10 +38,17 @@ This project was my first experience using a popular Javascript framework. I lea
 
 -   HTML
 -   CSS
+-   mySQL
 -   Axios
 -   Vue.js
--   Amazon Web Services
+-   Express
+-   Multer
+-   Amazon Web Services (S3)
 -   Media Queries
+
+### Design Packages <a name="Design"></a>
+
+-   Audacity digital audio editor
 
 # Features:
 
@@ -73,7 +81,7 @@ After selecting an image, a modal window will appear where users can leave a com
 
 <p align="center"><img src="/public/stuff/gifs/filters.gif" style="border-radius: 2px; box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.12);" width="80%"/></p>
 
-A fun option for users to change color filters based on the most popular Instagram&trade; filters. Utilising the power of Vue's data flow and the Vue object methods, I targeted the image elements and affected their class based on the selected option. Selecting the "DISCO-MODE" option also enabled a short mp3 clip of my personal remixed version of Room 5's "Make Luv". An undeniable party anthem ;)
+A fun option for users to change color filters based on the most popular Instagram&trade; filters. Utilising the power of Vue's data flow and the Vue object methods, I targeted the image elements and affected their class based on the selected option. Selecting the "DISCO-MODE" option also enables a short mp3 clip of my personal remixed version of Room 5's "Make Luv" I created using the free audio editing software "Audacity". Truly a party anthem ;)
 
 #### 5. Dark mode <a name="5"></a>
 
