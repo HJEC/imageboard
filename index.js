@@ -74,7 +74,7 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
         });
 });
 
-// TODO: DELETE IMAGES
+// DELETE IMAGE ROUTE
 app.post("/delete", async (req, res) => {
     let id = req.body.id;
     await deleteImage(id);
