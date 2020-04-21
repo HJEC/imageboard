@@ -1,10 +1,10 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7b4c7170-30b0-4d89-a169-314d50fd59c4/deploy-status)](https://app.netlify.com/sites/hjec-imageboard/deploys)
-
 <p align="center"><img  width="100"src="/public/stuff/dog_logo.png"/></p>
 
 <h1 align="center"> Imageboard</h1>
 <br>
 
+<h4> you can visit the live version of this project, hosted with Heroku at the link next to the repo description, or <a style="text-decoration: underline"href="https://hjec-imageboard.herokuapp.com/">here</a>.
+🐶🐕🐩🦴</h4>
 <p align="center"><img src="/public/stuff/gifs/overview.gif"/></p>
 
 > “If there are no dogs in Heaven, then when I die I want to go where they went.” ― Will Rogers
@@ -47,6 +47,7 @@ This project was my first experience using a popular Javascript framework. I lea
 -   Multer
 -   Amazon Web Services (S3)
 -   Media Queries
+-   Heroku
 
 ### Design Packages <a name="Design"></a>
 
