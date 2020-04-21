@@ -122,4 +122,6 @@ app.post("/addcomment/:imageId/:username/:comment", (req, res) => {
         });
 });
 
-app.listen(8080, () => console.log("see you space cowboy..."));
+app.listen(process.env.PORT || 8080, () =>
+    console.log("see you space cowboy...")
+);
