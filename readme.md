@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b4c7170-30b0-4d89-a169-314d50fd59c4/deploy-status)](https://app.netlify.com/sites/hjec-imageboard/deploys)
+
 <p align="center"><img  width="100"src="/public/stuff/dog_logo.png"/></p>
 
 <h1 align="center"> Imageboard</h1>
