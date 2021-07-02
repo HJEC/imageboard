@@ -28,7 +28,6 @@ img {
 header {
     display: grid;
     grid-template-columns: 75% 25%;
-    grid-template-rows: repeat(70px, 4);
     margin: 25px;
 }
 header h1 {

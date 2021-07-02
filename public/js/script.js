@@ -179,7 +179,7 @@
         },
         methods: {
             upload: function(e) {
-                var vueInstance = this;
+                var self = this;
                 e.preventDefault();
                 if (this.file == null) {
                     window.alert("You must select a file! \nplease try again");
@@ -200,7 +200,7 @@
                     axios
                         .post("/upload", formData)
                         .then(function(response) {
-                            vueInstance.images.unshift(response.data);
+                            self.images.unshift(response.data);
                         })
                         .catch(function(err) {
                             console.log("Error in POST: ", err);

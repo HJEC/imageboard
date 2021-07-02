@@ -193,6 +193,8 @@ textarea:focus {
     padding: 10px;
     border-bottom: solid 2px var(--beta-color);
     margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 /* NAVIGATION HOVER  */
@@ -203,18 +205,11 @@ textarea:focus {
     transform: translateX(20px);
 }
 
-.left:hover .left_image {
-    opacity: 0.5;
-}
-.right:hover .right_image {
+.left:hover .left_image, .right:hover .right_image {
     opacity: 0.5;
 }
 
-.left:hover #left {
-    background: #e2c2a5;
-    color: snow;
-}
-.right:hover #right {
+.left:hover #left, .right:hover #right {
     background: #e2c2a5;
     color: snow;
 }

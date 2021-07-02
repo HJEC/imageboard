@@ -158,8 +158,6 @@
     .flex_row {
         flex-direction: column;
     }
-    header {
-    }
     .main_form {
         width: 400px;
     }
