@@ -55,7 +55,6 @@ header h2 {
     grid-row: 4/ 5;
     font-size: 1.6rem;
     align-self: end;
-    margin-top: 20px;
 }
 
 /* FORM  */
@@ -68,7 +67,6 @@ header h2 {
     flex-wrap: wrap;
     align-self: center;
     min-height: 40px;
-    max-height: 200px;
     width: 90vw;
 }
 
@@ -82,6 +80,7 @@ input[type="text"] {
     border: none;
     border-bottom: 1px solid var(--border-color);
     background: none;
+    min-width: 300px;
 }
 
 input::placeholder {
@@ -104,7 +103,7 @@ form label {
     border-radius: 4px;
     cursor: pointer;
     transition: bottom ease 0.5s;
-    margin: 30px auto 10px auto;
+    margin: 30px  10px ;
 }
 
 form label:hover {
@@ -153,7 +152,7 @@ select {
     grid-column: 2 / 3;
     grid-row: 3/ 4;
     height: 40px;
-    margin: 20px auto;
+    margin: 20px 10px;
 }
 option {
     background: var(--bg-color);

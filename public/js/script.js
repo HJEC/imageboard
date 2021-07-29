@@ -278,12 +278,12 @@
                     //this will grab the value of option at clicked index
                     this.selectedFilter = filter;
                     if (filter !== "animated") {
-                        console.log("STOP PLEASE!");
                         disco.src = "";
                         disco.pause();
                     }
                     if (filter == "animated") {
                         disco.src = "/stuff/room5_PartyLad_edit.mp3";
+                        disco.volume = 0.5;
                         disco.play();
                     }
                 };

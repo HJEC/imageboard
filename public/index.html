@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="/css/filters.css">
     <script src="https://kit.fontawesome.com/93f7e3b0db.js" crossorigin="anonymous" sameSite="none"></script>
     <link rel="stylesheet" href="/css/mediaQueries.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-46795RYWPH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-46795RYWPH');
+    </script>
+    <!-- I SEE YOU :) -->
 </head>
 
 <body>
@@ -42,7 +51,7 @@
 
                 <input @change="handleChange" type="file" name="file" id="file" accept="image/*">
                 <label for="file">select file 📁</label>
-                <i @click="upload"  class="fas upload fa-arrow-circle-up"></i>
+                <i @click="upload"  class="fas upload fa-arrow-circle-up" title='upload image!'></i>
                 <select name="filterSelect">
                 <option value="null">Select Filter</option>
                 <option value="monochrome">monochrome</option>

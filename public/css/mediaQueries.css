@@ -19,14 +19,13 @@
     header h1 {
         margin: 20px auto;
     }
+    header h2 {
+        align-self: center;
+    }
     header h3 {
         width: 70%;
         margin: 20px auto;
         line-height: 40px;
-    }
-    header h2 {
-        align-self: center;
-        margin: 20px auto;
     }
     .main_form {
         display: flex;
@@ -34,7 +33,6 @@
         justify-content: center;
         width: 400px;
         margin: 20px 40px;
-        height: 300px;
     }
     input[name="username"] {
         margin-left: 20px;
