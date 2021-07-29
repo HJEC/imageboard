@@ -1,5 +1,6 @@
-const express = require("express"),
-    app = express(),
+const express = require("express");
+const app = express();
+const 
     {
         getImages,
         getMoreImages,
@@ -9,9 +10,12 @@ const express = require("express"),
         addComment,
         getComments,
         findLastImage
-    } = require("./dbFuncs"),
-    { upload } = require("./s3"),
-    config = require("./config");
+    } = require("./dbFuncs");
+
+const { upload } = require("./s3");
+const { mailer } = require("./mailer");
+const config = require("./config");
+
 
 app.use(express.static("./public"));
 
@@ -55,13 +59,13 @@ app.get("/images/:lastId", (req, res) => {
 });
 
 // UPLOAD IMAGES ROUTE
-app.post("/upload", uploader.single("file"), upload, (req, res) => {
+app.post("/upload", uploader.single("file"), mailer, upload, (req, res) => {
     let url = config.s3Url + req.file.filename;
     let title = req.body.title;
     let username = req.body.username;
     let description = req.body.description;
+   
 
-    console.log("file contents:", url, title, username, description);
 
     importImages(url, title, description, username)
         .then(response => {
@@ -72,6 +76,7 @@ app.post("/upload", uploader.single("file"), upload, (req, res) => {
             console.log("error in import: ", err);
             res.sendStatus(500);
         });
+
 });
 
 // DELETE IMAGE ROUTE
