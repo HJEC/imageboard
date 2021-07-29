@@ -147,17 +147,11 @@
         height: 225px;
         margin: 5px 10px;
     }
-}
 
-/* large phone */
-@media screen and (max-width: 600px) and (orientation: portrait) {
 
     .shift {
         visibility: hidden;
     }
-}
-/* MEDIUM PHONE  */
-@media screen and (max-width: 430px) and (orientation: portrait) {
     header h2 {
         align-self: center;
     }
@@ -178,9 +172,6 @@
     }
     select {
         margin: 40px auto;
-    }
-    .flex_row {
-        flex-wrap: nowrap;
     }
     .button {
         margin: 20px auto;
