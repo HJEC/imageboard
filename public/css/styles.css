@@ -81,6 +81,9 @@ input[type="text"] {
     border-bottom: 1px solid var(--border-color);
     background: none;
     width: 30%;
+}
+
+.main_form input[type="text"]{
     min-width: 300px;
 }
 
