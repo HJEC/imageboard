@@ -80,6 +80,7 @@ input[type="text"] {
     border: none;
     border-bottom: 1px solid var(--border-color);
     background: none;
+    width: 30%;
     min-width: 300px;
 }
 
