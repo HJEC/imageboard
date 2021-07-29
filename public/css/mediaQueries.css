@@ -34,9 +34,7 @@
         width: 400px;
         margin: 20px 40px;
     }
-    input[name="username"] {
-        margin-left: 20px;
-    }
+
 
     /* MODAL */
     .popup {
@@ -153,16 +151,7 @@
 
 /* large phone */
 @media screen and (max-width: 600px) and (orientation: portrait) {
-    .flex_row {
-        flex-direction: column;
-    }
-    .main_form {
-        width: 400px;
-    }
 
-    input[name="username"] {
-        margin-left: 10px;
-    }
     .shift {
         visibility: hidden;
     }
