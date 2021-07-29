@@ -12,14 +12,14 @@
 .flex_row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .image_box {
     display: flex;
     flex-direction: column;
     width: 315px;
-    margin: 20px auto;
+    margin: 20px;
     border: 2px solid var(--border-color);
     background: var(--bg-color);
     border-radius: 5px;
@@ -42,7 +42,7 @@
 .button {
     display: block;
     color: black;
-    margin: 20px auto;
+    margin: 20px 40%;
     height: 50px;
     width: 150px;
     border-radius: 15px;
