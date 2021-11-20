@@ -3,7 +3,7 @@
 <h1 align="center"> Imageboard</h1>
 <br>
 
-<h4>you can visit the live version of this project, hosted with Heroku at the link next to the repo description, or <a style="text-decoration: underline"href="https://hotdogs-imageboard.herokuapp.com/">here</a>.🐶🦴</h4>
+<h4>you can visit the live version of this project, hosted with Heroku at the link next to the repo description, or <a style="text-decoration: underline"href="https://hjec-imageboard.herokuapp.com/">here</a>.🐶🦴</h4>
 <p align="center"><img src="/public/stuff/gifs/overview.gif"/></p>
 
 > “If there are no dogs in Heaven, then when I die I want to go where they went.” ― Will Rogers
@@ -37,20 +37,20 @@ This project was my first experience using a popular Javascript framework. I lea
 
 ### Technologies
 
--   HTML
--   CSS
--   mySQL
--   Axios
--   Vue.js
--   Express
--   Multer
--   Amazon Web Services (S3)
--   Media Queries
--   Heroku
+- HTML
+- CSS
+- mySQL
+- Axios
+- Vue.js
+- Express
+- Multer
+- Amazon Web Services (S3)
+- Media Queries
+- Heroku
 
 ### Design Packages <a name="Design"></a>
 
--   Audacity digital audio editor
+- Audacity digital audio editor
 
 # Features:
 
